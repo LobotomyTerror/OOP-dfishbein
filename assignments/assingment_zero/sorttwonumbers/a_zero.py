@@ -35,7 +35,7 @@ def get_nums() -> Tuple[int, int]:
     entered
 
     Returns:
-        Tuple[int, int]: Changes the numbers 
+        Tuple[int, int]: Changes the numbers
         from strings to ints
     """
     line = sys.stdin.readline()
