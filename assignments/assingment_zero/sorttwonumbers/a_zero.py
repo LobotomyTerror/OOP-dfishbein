@@ -7,6 +7,17 @@ def print_nums(num1: int, num2: int) -> None:
 
 
 def switch_nums(num1: int, num2: int) -> Tuple[int, int]:
+    """Function for swapping two numbers if
+    one is greater than the other
+
+    Args:
+        num1 (int): first number entered
+        num2 (int): second numbered entered
+
+    Returns:
+        Tuple[int, int]: returns the sorted numbers
+        sorted from smallest to largest
+    """
     if num1 > num2:
         num1, num2 = num2, num1
     return num1, num2
