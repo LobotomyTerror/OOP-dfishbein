@@ -24,7 +24,7 @@
 | __Due__                | 02/06/2024                                     |
 | __Difficulty__         | 1.4 as of 01/29/2024                           |
 | __Status__             | Completed                                      |
-| __Location__           | https://github.com/LobotomyTerror/OOP-dfishbein/tree/main/assignments/assingment_zero/sorttwonumbers                           |
+| __Location__           | https://github.com/LobotomyTerror/OOP-dfishbein/tree/main/assignments/assingment_one/sorttwonumbers                           |
 | __Self Grade__         | 100/100                                        |
 | __Notes__ | Had a little trouble figuring out the kattis cli but was able to figure it out. Everything is working as of now and submitted              |
 
