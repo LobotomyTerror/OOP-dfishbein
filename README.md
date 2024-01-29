@@ -1,3 +1,6 @@
+# Course Description
+
+
 | __Course__          | CSCI 375 - OOP Design                             | 
 | ------------------- | ------------------------------------------------- |
 | __Section__         | 1                                                 | 
@@ -10,9 +13,12 @@
 
 # Assignments
 
+
 ## Assignment #0
 
+
 | __Assignment Details__ | __Info__                                       |
+|------------------------|------------------------------------------------|
 | __Name__               | Sort Two Numbers                               |
 | __Description__        | Solving a simple Kattis problem [sorttwonumber](https://open.kattis.com/problems/sorttwonumbers) and getting Environment setup    |
 | __Due__                | 02/06/2024                                     |
@@ -21,3 +27,4 @@
 | __Location__           | https://github.com/LobotomyTerror/OOP-dfishbein/tree/main/assignments/assingment_zero/sorttwonumbers                           |
 | __Self Grade__         | 100/100                                        |
 | __Notes__ | Had a little trouble figuring out the kattis cli but was able to figure it out. Everything is working as of now and submitted              |
+
