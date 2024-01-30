@@ -3,7 +3,8 @@ FROM python:3
 RUN apt update \
   && apt install -y \
   g++ gcc make sqlite3 time curl git nano dos2unix \
-  net-tools iputils-ping iproute2 sudo gdb less 
+  net-tools iputils-ping iproute2 sudo gdb less \
+  default-jre graphviz
 
 ARG USER=user
 ARG UID=1000
@@ -33,6 +34,11 @@ RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/
     -p ssh-agent \
     -p https://github.com/zsh-users/zsh-autosuggestions \
     -p https://github.com/zsh-users/zsh-completions
+
+Run mkdir /opt/plantuml && \
+  curl -L http://sourceforge.net/projects/plantuml/files/plantuml.jar/download -o /opt/plantuml/plantuml.jar
+
+RUN ln -s /opt/plantuml/plantuml.jar /usr/local/bin/plantuml
 
 USER user
 
