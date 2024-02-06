@@ -39,18 +39,22 @@
 Simply project that I have added to my list of stuff. All I wanted to be able to do was run the plantuml program through the command line which makes it a lot faster when wanting to output the uml diagram. So far I have gotten a little head way done with this project. I have gotten it to be downloaded into the container and set an environment variable so that it can be used as a variable instead of using the entire absolute path to run the jar file. Next I need to get it aliased so that it can simply be a variable typed in that runs the jar script in the background and outputs a uml file from the acceptable files that work with the jar command.
 
 So far this is what I have:
+
 ```
 java -jar $PLANT test.txt
 ```
+
 This works for the moment but I want to continue to improve this by adding an alias to this environment variable, so it would look like this:
 
 ```
 plantuml test.txt
 ```
+
 Other information about how this works is pretty striaght forward. It requires specific file types that it can convert to a png file that displays the actual uml diagram.
 
 I created a .txt file for this and put this in the file itself:
-```
+
+```plantuml
 @startuml
 Alice -> Bob: test
 @enduml
