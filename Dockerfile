@@ -37,11 +37,13 @@ RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/
     -p https://github.com/zsh-users/zsh-syntax-highlighting
 
 # Creates dirctory and installs plantuml.jar file for uml design through cmd line
-Run mkdir /opt/plantuml && \
-    curl -L http://sourceforge.net/projects/plantuml/files/plantuml.jar/download -o /opt/plantuml/plantuml.jar
+RUN mkdir /opt/plantuml && \
+    curl -L http://sourceforge.net/projects/plantuml/files/plantuml.jar/download -o /opt/plantuml/plantuml.jar && chmod 754 /opt/plantuml/plantuml.jar
 
 # Sets an environment variable to be able to use for java jar script
 ENV PLANT=/opt/plantuml/plantuml.jar
+
+RUN echo "#alias plantuml='java -jar $PLANT'" >> ~/.bashrc
 
 USER user
 

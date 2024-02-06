@@ -1,3 +1,7 @@
+# CI/CD Badge
+
+![test](https://github.com/LobotomyTerror/OOP-dfishbein/actions/workflows/ci-test.yml/badge.svg)
+
 # Course Description
 
 
