@@ -8,25 +8,16 @@ all: check-style check-type run-test clean
 
 .PHONY: check-type
 check-type:
-	$(TYPE_CHECK) A0/hello
-	$(TYPE_CHECK) A0-OOP/hello
-	$(TYPE_CHECK) A1/cold
-	$(TYPE_CHECK) A1-OOP/cold
+	$(TYPE_CHECK) .
 
 .PHONY: check-style
 check-style:
-	$(STYLE_CHECK) A0/hello
-	$(STYLE_CHECK) A0-OOP/hello
-	$(STYLE_CHECK) A1/cold
-	$(STYLE_CHECK) A1-OOP/cold
+	$(STYLE_CHECK) .
 
 # discover and run all tests
 .PHONY: run-test
 run-test:
-	$(TEST) $(TEST_ARGS) A0/hello/tests
-	$(TEST) $(TEST_ARGS) A0-OOP/hello/tests
-	$(TEST) $(TEST_ARGS) A1/cold/tests
-	$(TEST) $(TEST_ARGS) A1-OOP/cold/tests
+	$(TEST) $(TEST_ARGS) .
 
 
 .PHONY: clean
