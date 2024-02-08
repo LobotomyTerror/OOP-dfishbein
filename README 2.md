@@ -1,210 +1,82 @@
-# Docker Container with Git Best Practices for CMU Courses
+# Object Oriented Programming & Design Patterns
 
-## Setup
+![Test](https://github.com/rambasnet/Python-Object-Oriented-Programming/actions/workflows/ci-test.yml/badge.svg)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/rambasnet/Python-Object-Oriented-Programming/HEAD)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rambasnet/Python-Object-Oriented-Programming)
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-1. Install [Docker](https://docs.docker.com/install/)
-2. Create a GitHub repository for your project/course
-3. Clone your repository to your local machine
-4. Download setup.sh script into your repository and run it
-    - `$ cd <your-repository>`
-    - `$ curl -o setup.sh https://raw.githubusercontent.com/rambasnet/course-container/main/setup.sh`
-    - `$ bash setup.sh`
+- Jupyter notebooks for Object Oriented Programming and Design Patterns using Python
 
-### Chromebook Setup
+## Text: Python Object Oriented Programming
 
-- follow the instructions here: [https://www.techrepublic.com/article/install-docker-chromeos/](https://www.techrepublic.com/article/install-docker-chromeos/)
-- You may have to explictly activate docker group everytime:
-- `$ newgrp docker`
+- Fourth Edition by Steven F. Lott and Dusty Phillips
 
-### What does setup.sh do?
+## How to use the notebooks
 
-1. Copy the following folder (with subfolders) and files from this repository to your repository:
-    - `Dockerfile`
-    - `Makefile`
-    - `run.sh`
-    - `script.sh`
-    - `.githooks`
-    - `requirements.py`
-    - `.github`
-    - `ci-cd-requirements.txt`
-    - `kattis-cli`
-    - `.mypy.ini`
-    - `.flake8`
+### Important
 
-### Configure
+In order to learn coding, it's very important to actually type code on your own from scratch and NOT copy paste! You can run provided cells to see the output, follow along and learn from it. However, it's very important that you either start a new notebook or add cells and write your own code from scratch to practice the concepts covered with many similar examples and solve the exercises provided for self assessment.
 
-1. Update the Dockerfile as needed for your project
-    - E.g., if you need to install any Linux packages, add the package to the end of `apt install -y` line
-    - after the docker is built, it runs as a non-root user `user` with sudo privileges
-    - the default working directory is `/home/user`
-    - your repository is mounted to `/home/user/<your-repository>`
-    - no password is required for sudo commands
+### Online services
 
-2. Update the Makefile as needed for your project
-    - Makefile is used by git hooks to run test before pushing main to GitHub
+You can launch an interactive session of this project using online Binder service:
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/badge_logo.svg) or Google Colab. Each chapter, where applicable, provides [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com) to simply click and run the notebook in Google's Colab environment.
 
-3. Update the script.sh as needed for your project
-    - you may rarely need to change the script.sh file
+### On a local system
 
-4. Update the requirements.py as needed for your project
-    - this file is used by Docker to install Python packages
+To run these notebooks interactively and save your work locally, you need [Python 3](https://www.python.org/) and [Jupyter Notebook](http://jupyter.org/) -- an interactive web-based editor that allows you to create and share documents that contain live code and data. [Anaconda or Miniconda](https://www.anaconda.com/products/distribution) is the recommended way to install Python and other packages on all modern platforms.
 
-5. Update .github/workflows/ci-test.yml as needed for your project
-    - this file is used by GitHub Actions to run tests on push to main
+#### Using Docker
 
-6. Update ci-cd-requirements.txt as needed for your project
-    - this file is used by GitHub Actions to install Python packages
+- Install Docker on your system: [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
 
-7. Update .githooks/pre-commit as needed for your project
-    - this file is run by git hooks before commmitting to any branch
+- Dockerfile is provided to build a container image with all the necessary packages and dependencies to run the notebooks. You can build the image and run the container using the provided bash scripts.
 
-8. Update .githooks/pre-push as needed for your project
-    - this file is run by git hooks before pushing to any branch
+- Clone this repo and run the following command from the root of the repo
+- Use git-bash Terminal on Windows to run bash scripts
 
-## Run Docker
+```bash
+    git clone https://github.com/rambasnet/Python-Object-Oriented-Programming.git
+    curl -o setup.sh https://raw.githubusercontent.com/rambasnet/course-container/main/setup.sh
+    bash setup.sh
+    bash run.sh # run interactive Debian Shell in the container
+    bash run-jupyter.sh # run jupyter notebook server in the container
+```
 
-1. `$ cd <your-repository>`
-2. `$ bash ./run.sh`
+- jupyter notebooks are inside the notebooks folder
+- start from the OO-Table-of-Contents.ipynb
 
-### What does run.sh do?
+#### Installing via Anaconda or Miniconda
 
-1. Builds the Docker image
-2. Runs the Docker container
-3. Mounts your repository to the Docker container
-4. Sets the working directory to your repository
-5. Configures git to use the git hooks in your repository
-6. Runs the script.sh file in the Docker container
+Anaconda or Miniconda has Python 3 and many other packages that you can easily install on any platform (Windows, Linux, and Mac). First, install Anaconda: [http://docs.continuum.io/anaconda/install/](http://docs.continuum.io/anaconda/install/) or Miniconda [https://conda.io/docs/user-guide/install/index.html](https://conda.io/docs/user-guide/install/index.html) for Python 3.
 
-## Git Branch Management and Best Practices
+After installing anaconda or miniconda, open a terminal or cmd prompt and run the following commands:
 
-- learn more about [git branch management](https://git-scm.com/docs/git-branch)
-- CMU advanced courses deosn't allow committing to the main branch
-    - only merge and push to main branch allowed
-- CMU courses recommend and enforce using a branch name that starts with:
-    - `lab|project|assignment|homework|issue|dev|feature|bugfix|improvement|library|prerelease|release|hotfix`
-    - `main` - the main branch - only merge and push to main branch allowed
-        - the main branch is protected and cannot be deleted
-        - the main branch is the default branch
-        - the main branch is the production branch
-        - the main branch is the release branch from which tags and releases are made
-    - `issue/<#>` - the issue branch
-        - the issue branch is used to fix an issue, bug, or add a new feature
-        - the issue branch is created from the main branch
-        - the issue branch is merged to the main branch
-    - `feature/<feature-name>` - the feature branch
-    - `bug/<bug-name>` - the bug branch
-    - `hotfix/<hotfix-name>` - the hotfix branch
-    - `release/<release-name>` - the release branch
-    - `lab/<lab-name>` - the lab branch for lab courses
-    - `project/<project-name>` - the project branch for various sub projects within a course
-    - `assignment/<assignment-name>` - the assignment branch for various assignments within a course
+```bash
+    conda update conda
+    conda env list # list current environments
+    conda env remove -n <environment_name> # remove existing environment
+    conda create -n oop python=3.10 # create a new virtual environment named py
+    conda activate oop
+    conda install notebook # or
+    conda install -c conda-forge retrolab # uses notebook
+    conda install mypy # type checker
+    python -m pip install hypothesis # test data generator
+```
 
-### Create a new branch, track it, and push it to GitHub
+#### Running the notebooks in VS Code
 
-1. `$ cd <your-repository>`
-2. `$ git checkout main`
-3. `$ git pull`
-4. `$ git branch` # list all branches
-5. `$ git checkout -b <new-branch-name>` # create a new branch and switch to it
-6. `$ git push -u origin <new-branch-name>` # push the new branch to GitHub and set the upstream
-7. `$ git add <file-name>` # add a file to the staging area
-8. `$ git commit -m "<commit-message>"` # commit the changes
-9. `$ git push` # push the changes to GitHub to the current branch
-10. `$ git branch -m <new-branch-name> <old-branch-name>` # rename a branch; optional old-branch-name if you're on the old-branch-name
+- Python notebooks can be run natively in VS Code. Simply open the notebook file with extension .ipynb in VS Code and run each cell; add new cell, etc. right from VS Code.
 
-### Rename a branch
+#### Running the notebooks using jupyter notebook server
 
-1. `$ cd <your-repository>`
-2. `$ git branch -m <new-branch-name> <old-branch-name>` # rename a branch; optional old-branch-name if you're on the old-branch-name
-3. `$ git push origin -u <new-branch-name>` # push the new branch to GitHub and set the upstream
+Once Python 3 and Jupyter Notebook are installed, open a terminal change working directory using cd command to go into the folder where this repo is cloned and run the notebook from there. Use notebook or retro.
 
-### Switch to an existing branch
+```bash
+    cd <directory where this repo is cloned>
+    jupyter notebook # or
+    jupyter retro
+```
 
-1. `$ cd <your-repository>`
-2. `$ git checkout <branch-name>` - switch to an existing branch
-
-### List all branches
-
-1. `$ cd <your-repository>`
-2. `$ git branch` - list all branches
-3. `$ git branch -a` - list all branches including remote branches
-4. `$ git branch -r` - list all remote branches
-
-### Merge a branch to main
-
-- you must merge your branch to main after all the tests pass on your branch
-- you can then push and tag the main branch
-
-1. `$ cd <your-repository>`
-2. make sure your tests pass on the branch you want to merge to main
-3. `$ git checkout main`
-4. `$ git pull`
-5. `$ git merge <branch-name>` # merge the branch to main
-6. `$ git push` # push the changes to GitHub
-
-### Delete a branch
-
-- you can only delete a branch that is not currently checked out
-- you can keep the merged branch or delete it
-
-1. `$ cd <your-repository>`
-2. `$ git branch -d <branch-name>` # delete the branch locally
-3. `$ git push origin --delete <branch-name>` # delete the branch on GitHub
-
-### Revert a commit
-
-- you can revert a commit on any branch
-
-1. `$ cd <your-repository>`
-2. `$ git checkout <branch-name>` # switch to the branch
-3. `$ git log` # find the commit hash you want to revert
-4. `$ git revert <commit-hash>` # revert the commit
-5. `$ git push` # push the changes to GitHub
-
-### Revert a merge
-
-- you can revert a merge on any branch
-
-1. `$ cd <your-repository>`
-2. `$ git checkout <branch-name>` # switch to the branch
-3. `$ git log` # find the commit hash you want to revert
-4. `$ git revert -m 1 <commit-hash>` # revert the merge commit
-5. `$ git push` # push the changes to GitHub
-
-
-### Revert a merge conflict
-
-- you can revert a merge conflict on any branch
-
-1. `$ cd <your-repository>`
-2. `$ git checkout <branch-name>` # switch to the branch
-3. `$ git log` # find the commit hash you want to revert
-4. `$ git revert -m 1 <commit-hash>` # revert the merge commit
-5. `$ git push` # push the changes to GitHub
-
-
-### Git Tagging
-
-- learn more about [git tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging)
-- Tags are used to mark a specific point in the history of a repository like a release
-- Tags are immutable and cannot be changed once created
-- Tags once created needs to be pushed to GitHub
-- Assignments/Labs/Projects completions can be tagged and pushed to GitHub as a release
-
-### Create a tag
-
-- follow the naming convention for tags specified in the course
-- must tag to submit the assignment/lab/project
-- tag name must be unique across all branches
-
-1. `$ cd <your-repository>`
-2. `$ git tag -a <tag-name> -m "<tag-message>"` # create a tag
-    - e.g., `$ git tag -a assignment-1 -m "Final Submission of Assignment/1"`
-3. `$ git push origin <tag-name>` # push the tag to GitHub
-4. git tag -d <tag-name> # delete a tag locally
-5. git tag # show all tags
-
-## Kattis-cli Setup and Usage
-
-- Kattis-cli is already installed in the Docker container
-- [See this document for Kattis setup and usage](https://github.com/rambasnet/kattis-cli)
+This will start a Jupyter session in your browser. Open any chapter and start coding...
