@@ -28,7 +28,10 @@ Address = Tuple[str, int]
 
 
 class LogRoller:
-    def __init__(self, dice: Callable[[bytes], bytes], remote_addr: Address) -> None:
+    def __init__(self,
+                 dice: Callable[[bytes],
+                                bytes],
+                 remote_addr: Address) -> None:
         self.dice_roller = dice
         self.remote_addr = remote_addr
 
@@ -50,10 +53,6 @@ def dice_response(client: socket.socket) -> None:
     except (ValueError, KeyError) as ex:
         response = repr(ex).encode("utf-8")
     client.send(response)
-
-
-import contextlib
-import socket
 
 
 def main_3() -> None:

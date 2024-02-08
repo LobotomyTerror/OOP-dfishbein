@@ -31,7 +31,7 @@ class Roll(Adjustment):
 
 class Drop(Adjustment):
     def apply(self, dice: "Dice") -> None:
-        dice.dice = dice.dice[self.amount :]
+        dice.dice = dice.dice[self.amount:]
 
 
 class Keep(Adjustment):
@@ -76,7 +76,8 @@ class Dice:
 
         n = int(dice_match.group("n")) if dice_match.group("n") else 1
         d = int(dice_match.group("d"))
-        adjustment_matches = adjustment_pattern.finditer(dice_match.group("a") or "")
+        adjustment_matches = adjustment_pattern.finditer(
+            dice_match.group("a") or "")
         adjustments = [
             adj_class[a.group(1)](int(a.group(2))) for a in adjustment_matches
         ]
@@ -144,4 +145,5 @@ b'Dice 6 4d6d1 = [13, 7, 18, 14, 4, 12]'
 
 """
 
-__test__ = {name: case for name, case in globals().items() if name.startswith("test_")}
+__test__ = {name: case for name, case in globals().items()
+            if name.startswith("test_")}

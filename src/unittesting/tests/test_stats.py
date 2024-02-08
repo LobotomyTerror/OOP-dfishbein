@@ -28,4 +28,3 @@ class TestValidInputs(unittest.TestCase):
         self.assertEqual(self.stats.mode(), [2, 3])
         self.stats.remove(2)
         self.assertEqual(self.stats.mode(), [3])
-

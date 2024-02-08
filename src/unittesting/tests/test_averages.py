@@ -25,5 +25,6 @@ class TestAverage(unittest.TestCase):
         with self.assertRaises(ZeroDivisionError):
             average([])
 
+
 if __name__ == "__main__":
     unittest.main()

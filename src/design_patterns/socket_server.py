@@ -45,9 +45,6 @@ class LogSocket:
         self.socket.close()
 
 
-import contextlib
-import socket
-
 def main_1() -> None:
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.bind(("localhost", 2401))
@@ -74,5 +71,5 @@ def main_2() -> None:
 
 
 if __name__ == "__main__":
-    #main_1()
+    # main_1()
     main_2()

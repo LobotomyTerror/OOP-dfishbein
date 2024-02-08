@@ -6,6 +6,7 @@ Chapter 2, Objects in Python.
 
 import math
 
+
 class Point:
     """
     Represents a point in two-dimensional geometric coordinates
@@ -52,6 +53,7 @@ class Point:
         :return: float distance
         """
         return math.hypot(self.x - other.x, self.y - other.y)
+
 
 def main() -> None:
     """

@@ -11,4 +11,5 @@ test_2 = """
 {'key': 'test_2'}
 """
 
-__test__ = {name: case for name, case in globals().items() if name.startswith("test_")}
+__test__ = {name: case for name, case in globals().items()
+            if name.startswith("test_")}

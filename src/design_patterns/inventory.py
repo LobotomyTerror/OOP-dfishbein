@@ -179,7 +179,8 @@ def find_seed() -> None:
             print(f"with {s}, roll {player.rolls} ")
 
 
-__test__ = {name: case for name, case in globals().items() if name.startswith("test_")}
+__test__ = {name: case for name, case in globals().items()
+            if name.startswith("test_")}
 
 if __name__ == "__main__":
     find_seed()

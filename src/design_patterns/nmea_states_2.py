@@ -124,7 +124,8 @@ class Message:
     def __repr__(self) -> str:
         body = self.body[: self.body_len]
         checksum = self.checksum_source[: self.checksum_len]
-        return f"Message({body}, {checksum}, computed={self.checksum_computed:02x})"
+        return f"Message({body}, {checksum}, computed={
+            self.checksum_computed:02x})"
 
     def message(self) -> bytes:
         return (
@@ -174,4 +175,5 @@ b'$GPGLL,3723.2475,N,12158.3416,W,161229.487,A,A*41'
 """
 
 
-__test__ = {name: case for name, case in globals().items() if name.startswith("test_")}
+__test__ = {name: case for name, case in globals().items()
+            if name.startswith("test_")}
