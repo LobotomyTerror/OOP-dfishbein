@@ -50,7 +50,7 @@ This works for the moment but I want to continue to improve this by adding an al
 plantuml test.txt
 ```
 
-Other information about how this works is pretty striaght forward. It requires specific file types that it can convert to a png file that displays the actual uml diagram.
+Other information about how this works is pretty straight forward. It requires specific file types that it can convert to a png file that displays the actual uml diagram.
 
 I created a .txt file for this and put this in the file itself:
 
@@ -59,6 +59,6 @@ I created a .txt file for this and put this in the file itself:
 Alice -> Bob: test
 @enduml
 ```
-Once that is created you can run the above commmand and it will output:
+Once that is created you can run the above command and it will output:
 
 ![uml diagram](https://github.com/LobotomyTerror/OOP-dfishbein/blob/main/assignments/assingment0/sorttwonumbers/uml/test.png)
