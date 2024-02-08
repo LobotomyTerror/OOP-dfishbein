@@ -4,7 +4,7 @@ RUN apt update \
   && apt install -y \
   g++ gcc make sqlite3 time curl git nano dos2unix \
   net-tools iputils-ping iproute2 sudo gdb less \
-  default-jre graphviz
+  default-jre graphviz && apt clean
 
 ARG USER=user
 ARG UID=1000
