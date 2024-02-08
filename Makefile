@@ -8,16 +8,16 @@ all: check-style check-type run-test clean
 
 .PHONY: check-type
 check-type:
-	$(TYPE_CHECK) .
+	$(TYPE_CHECK) assignments/assingment0/sorttwonumbers
 
 .PHONY: check-style
 check-style:
-	$(STYLE_CHECK) .
+	$(STYLE_CHECK) assignments/assingment0/sorttwonumbers
 
 # discover and run all tests
 .PHONY: run-test
 run-test:
-	$(TEST) $(TEST_ARGS) .
+	$(TEST) $(TEST_ARGS) assignments/assingment0/sorttwonumbers
 
 
 .PHONY: clean
