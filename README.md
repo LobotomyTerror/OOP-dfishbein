@@ -1,6 +1,6 @@
 # CI/CD Badge
 
-![test](https://github.com/LobotomyTerror/OOP-dfishbein/actions/workflows/ci-test.yml/badge.svg)
+![ci/cd](https://github.com/LobotomyTerror/OOP-dfishbein/actions/workflows/ci-test.yml/badge.svg)
 
 # Course Description
 
@@ -32,6 +32,20 @@
 | __Self Grade__         | 100/100                                        |
 | __Notes__ | Had a little trouble figuring out the kattis cli but was able to figure it out. Everything is working as of now and submitted              |
 
+
+## Assignment 1
+
+
+| __Assignment Details__ | __Info__                                       |
+|------------------------|------------------------------------------------|
+| __Name__               | Python Quizzes                                  |
+| __Description__        | Solving basic syntax and other specifics about python with doing short quizzes |
+| __Due__                | 02/13/2024                                     |
+| __Difficulty__         | N/A                                            |
+| __Status__             | Completed                                      |
+| __Location__           | https://github.com/LobotomyTerror/OOP-dfishbein/tree/main/assignments/A1-review/screenshots                           |
+| __Self Grade__         | 100/100                                        |
+| __Notes__ | Noticed a lot of areas that I could improve with Python but I also surprised myself with some of the other areas I did well on               |
 
 
 ## PlantUML CLI project
