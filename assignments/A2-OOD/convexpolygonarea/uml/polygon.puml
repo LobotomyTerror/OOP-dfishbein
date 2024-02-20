@@ -1,0 +1,62 @@
+@startuml A2-OOD
+class Points {
+    -- Instance Variables --
+    - _x: int
+    - _y: int
+    -- Class Methods --
+    + get_coordinates(): Tuple[int, int]
+    + set_coordinates(x: int, y: int): None
+    + get_coordinate_x(): int
+    + set_coordinate_x(x: int): None
+    + get_coordinate_y(): int
+    + set_coordinate_y(y: int): None
+}
+note left of Points
+    Module that allows for setting
+    x and y coordinates and to be
+    accessed by Polygon
+endnote
+class Polygon {
+    -- Instance Variables --
+    - _num_of_polygons: int
+    - _num_of_points: int
+    - _coordinates: List[Points]
+    -- Instance Methods --
+    + calc_polygon(): float
+    + read_input(file: Any): None
+    + input_file(file: Any): None
+    -- Class Methods --
+    + get_total_points(): int
+    + set_total_points(points: int): None
+    + get_coordinates_set(): List[Points]
+    + set_coordinates_set(coord_set: List[Points]): None
+    -- Static Methods --
+    + main(): None
+    + print_calc(final_calc: float): None
+}
+note right of Polygon
+    Takes in coordinates x, y
+    and sets them to the Points
+    object as many times as
+    wanted
+endnote
+Points "(x, y)" -- "3..*" Polygon : Dependency
+class TestPolygons {
+    + setupUp(): None
+    + tearDown(): super
+    + test_read_data_one(): None
+    + test_read_data_two(): None
+    + test_output_one(): None
+    + test_output_two(): None
+    + test_main(): None
+    + test_polygon_input_one(): None
+    + test_polygon_input_two(): None
+    + test_polygon_input_three(): None
+}
+note left of TestPolygons
+    Unit Testing module to test
+    functions of Points and Polygon classes
+endnote
+Points <|-- TestPolygons
+Polygon <|-- TestPolygons
+@enduml
