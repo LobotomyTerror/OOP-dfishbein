@@ -36,4 +36,4 @@ test_input:
 	@cat data/1.in | $(PROG) $(MAIN) | diff - data/1.ans
 	@cat data/2.in | $(PROG) $(MAIN) | diff - data/2.ans
 	@cat data/3.in | $(PROG) $(MAIN) | diff - data/3.ans
-	@echo "Local tests of main program have passed"
+	@echo "Local tests of main program have passed all tests"

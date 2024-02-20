@@ -1,26 +1,106 @@
+"""Module for unit testing, that checks the
+functionality of the public methods in the other
+modules
+    """
+import os
 import unittest
+from unittest.mock import patch
+from io import StringIO
 from convexpolygonarea import Polygon
 from points import Points
 
 
 class TestPolygons(unittest.TestCase):
+    """Conducts tests of the public methods
+    of the other modules checking the final
+    output
+    """
+
+    def setUp(self) -> None:
+        """Setup member function for unit
+        testing
+        """
+        self.poly = Polygon()
+        file = os.path.dirname(os.path.abspath(__file__))
+        file_1 = os.path.join(file, 'data/sample.in')
+        self.input1 = open(file_1, 'r', encoding='utf-8')
+        file_2 = os.path.join(file, 'data/sample_2.in')
+        self.input2 = open(file_2, 'r', encoding="utf-8")
+
+    def tearDown(self) -> None:
+        """Tear down method for cleaning up
+        running processes
+        """
+        self.input1.close()
+        self.input2.close()
+        return super().tearDown()
+
+    def test_read_data_one(self) -> None:
+        """Test read data member function
+        """
+        self.poly.read_input(self.input1)
+        self.assertEqual(self.poly.total_points, 3)
+        test_list = [(1, 1), (2, 1), (2, 2)]
+        for i, row in enumerate(self.poly.coordinates_set):
+            self.assertEqual(
+                (row.coordinate_x, row.coordinate_y),
+                test_list[i]
+            )
+
+    def test_read_data_two(self) -> None:
+        """Testing read data member function
+        """
+        self.poly.read_input(self.input2)
+        self.assertEqual(self.poly.total_points, 4)
+        test_list = [(0, 0), (10, 0), (13, 5), (10, 8)]
+        for i, row in enumerate(self.poly.coordinates_set):
+            self.assertEqual(
+                (row.coordinate_x, row.coordinate_y),
+                test_list[i]
+            )
+
+    def test_output_one(self) -> None:
+        """Testing output of entire program
+        """
+        with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
+            self.poly.read_input(self.input1)
+            self.assertEqual(mock_stdout.getvalue(), '0.5\n')
+
+    @patch('sys.stdout', new_callable=StringIO)
+    def test_output_two(self, mock_stdout: StringIO) -> None:
+        """Testing output of entire program
+        """
+        self.poly.read_input(self.input2)
+        self.assertEqual(mock_stdout.getvalue(), "52\n")
+
+    @patch('sys.stdin', StringIO("1\n 3 1 1 2 1 2 2\n"))
+    def test_main(self) -> None:
+        """Testing main function that runs entire
+        program
+        """
+        with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
+            self.poly.main()
+            self.assertEqual(mock_stdout.getvalue(), "0.5\n")
+
     def test_polygon_input_one(self) -> None:
-        polygon = Polygon()
-        polygon.total_points = 12
-        polygon.coordinates_set = [
+        """Tests polygon calculation
+        """
+        self.poly.total_points = 12
+        self.poly.coordinates_set = [
             Points(0, 0), Points(3, 6), Points(6, 12),
             Points(9, 18), Points(12, 24), Points(15, 30),
             Points(18, 24), Points(21, 18), Points(24, 12),
             Points(27, 6), Points(30, 0), Points(33, -6)
         ]
-        actual_ans = abs(polygon.calc_polygon()) / 2.0
+        actual_ans = abs(self.poly.calc_polygon()) / 2.0
         expected_ans = 540
         self.assertEqual(actual_ans, expected_ans)
 
     def test_polygon_input_two(self) -> None:
-        polygon = Polygon()
-        polygon.total_points = 100
-        polygon.coordinates_set = [
+        """Tests polygon calculation
+        """
+        self.poly.total_points = 100
+        self.poly.coordinates_set = [
             Points(0, 0), Points(1, 50), Points(2, 100),
             Points(3, 150), Points(4, 200), Points(5, 250),
             Points(6, 300), Points(7, 350), Points(8, 400),
@@ -56,14 +136,15 @@ class TestPolygons(unittest.TestCase):
             Points(96, 200), Points(97, 150), Points(98, 100),
             Points(99, 50)
         ]
-        actual_ans = abs(polygon.calc_polygon()) / 2.0
+        actual_ans = abs(self.poly.calc_polygon()) / 2.0
         expected_ans = 122500
         self.assertEqual(actual_ans, expected_ans)
 
     def test_polygon_input_three(self) -> None:
-        polygon = Polygon()
-        polygon.total_points = 57
-        polygon.coordinates_set = [
+        """Tests polygon calculation
+        """
+        self.poly.total_points = 57
+        self.poly.coordinates_set = [
             Points(-5000, -5000), Points(-4900, -4900), Points(-4800, -4800),
             Points(-4700, -4700), Points(-4600, -4600), Points(-4500, -4500),
             Points(-4400, -4400), Points(-4300, -4300), Points(-4200, -4200),
@@ -86,7 +167,7 @@ class TestPolygons(unittest.TestCase):
             Points(700, 700), Points(800, 800), Points(900, 900),
             Points(1000, 1000)
         ]
-        actual_ans = abs(polygon.calc_polygon()) / 2.0
+        actual_ans = abs(self.poly.calc_polygon()) / 2.0
         expected_ans = 0
         self.assertEqual(actual_ans, expected_ans)
 
