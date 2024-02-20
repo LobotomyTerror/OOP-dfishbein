@@ -48,6 +48,20 @@
 | __Notes__ | Noticed a lot of areas that I could improve with Python but I also surprised myself with some of the other areas I did well on               |
 
 
+## Assignment 2
+
+| __Assignment Details__ | __Info__                                       |
+|------------------------|------------------------------------------------|
+| __Name__               | A2-OOD Convex Polygon Area                     |
+| __Description__        | Using Object-Oriented Design to solve Kattis problem [Convex Polygon Area](https://open.kattis.com/problems/convexpolygonarea) |
+| __Due__                | 02/28/2024                                     |
+| __Difficulty__         | 2.0 as of 2/20/2024                            |
+| __Status__             | Completed                                      |
+| __Location__           | https://github.com/LobotomyTerror/OOP-dfishbein/tree/main/assignments/A2-OOD/convexpolygonarea                           |
+| __Self Grade__         | 100/100                                        |
+| __Notes__ | Had a little trouble setting up at first and getting everything setup but after a little bit I was able to get the modules created. I also learned a lot of different aspects of OOD |
+
+
 ## PlantUML CLI project
 
 Simply project that I have added to my list of stuff. All I wanted to be able to do was run the plantuml program through the command line which makes it a lot faster when wanting to output the uml diagram. So far I have gotten a little head way done with this project. I have gotten it to be downloaded into the container and set an environment variable so that it can be used as a variable instead of using the entire absolute path to run the jar file. Next I need to get it aliased so that it can simply be a variable typed in that runs the jar script in the background and outputs a uml file from the acceptable files that work with the jar command.
