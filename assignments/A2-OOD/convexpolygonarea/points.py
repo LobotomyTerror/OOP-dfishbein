@@ -88,3 +88,9 @@ class Points:
             from stdin
         """
         self._y = y
+
+# Citing - I ran into issues when I was creating this class
+# in the beginning which I utilized ChatGPT to help me understand
+# what was happening. It was from the setter and getter declarations
+# and I used ChatGPT to help me understand how to implement those class
+# methods properly.

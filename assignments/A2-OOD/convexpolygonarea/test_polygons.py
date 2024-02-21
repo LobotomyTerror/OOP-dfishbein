@@ -174,3 +174,8 @@ class TestPolygons(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+# Citing - For this module I did utilize Dr. Ram Basnet's
+# repo https://github.com/rambasnet/course-container/tree/main
+# along with ChatGPT to understand how these methods actually
+# worked in the unittest class.

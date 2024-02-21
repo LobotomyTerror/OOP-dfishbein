@@ -148,3 +148,12 @@ class Polygon:
 
 if __name__ == "__main__":
     Polygon.main()
+
+# Citing - For portions of this program I utilized ChatGPT
+# to help me understand specific portions of the code along with
+# helping me debug an issue with my shoelace formula. I got the
+# shoelace formula idea from this website
+# https://erkaman.github.io/posts/area_convex_polygon.html.
+# I also used some of the details from Dr. Ram Basnet's repo
+# https://github.com/rambasnet/course-container/tree/main to
+# help me better understand some of the OOD concepts as well.
