@@ -114,3 +114,10 @@ class TestPalindromes(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+# I did have some trouble understanding how to setup the hypothesis
+# portions to develop strings for me to test with. In that instance
+# I did enlist the help of ChatGPT to help me understand how to
+# setup hypothesis. Along with there site
+# https://hypothesis.readthedocs.io/en/latest/quickstart.html to
+# see about their documentation.

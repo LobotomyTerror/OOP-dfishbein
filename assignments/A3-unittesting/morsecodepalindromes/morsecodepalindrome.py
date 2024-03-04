@@ -161,3 +161,10 @@ class Palindrome:
 
 if __name__ == "__main__":
     Palindrome.main()
+
+# When working on this I did have to look up how to setup my regular
+# expression where I used https://regex101.com/ to help build it out.
+# Along with this site
+# https://codefather.tech/blog/remove-spaces-string-python/
+# that led me to the re.sub function to remove a matching
+# patterns.
