@@ -61,6 +61,19 @@
 | __Self Grade__         | 100/100                                        |
 | __Notes__ | Had a little trouble setting up at first and getting everything setup but after a little bit I was able to get the modules created. I also learned a lot of different aspects of OOD |
 
+## Assignment 3
+
+| __Assignment Details__ | __Info__                                       |
+|------------------------|------------------------------------------------|
+| __Name__               | A3-Unittesting Morse Code Palindrome           |
+| __Description__        | Using Object-Oriented Design to solve Kattis problem [Morse Code Palindrome](https://open.kattis.com/problems/morsecodepalindromes) and using unittest library and hypothesis |
+| __Due__                | 03/07/2024                                     |
+| __Difficulty__         | 3.0 as of 3/04/2024                            |
+| __Status__             | Completed                                      |
+| __Location__           | https://github.com/LobotomyTerror/OOP-dfishbein/tree/main/assignments/A3-unittesting/morsecodepalindromes                      |
+| __Self Grade__         | 100/100                                        |
+| __Notes__ | Created a test file to initially to solve the Kattis problem but had a little trouble creating the classes for it because I couldn't figure out how to set it up. Once done was able to get it completed. Still need to work on understanding unittesting as well. |
+
 
 ## PlantUML CLI project
 
