@@ -1,0 +1,82 @@
+@startuml A3-Unittesting
+class Palindrome {
+    -- Class Attributes --
+    - __reversed_str: str
+    - __morse_code: str
+    -- Class Methods --
+    + __init__(): None
+    + getStr_input(): str
+    + setStr_input(input_str: str): None
+    + getString_reversed(): str
+    + setString_reversed(reversed_str: str): None
+    + getMorse_coded_str(): str
+    + setMorse_coded_str(morse_coded_str: str): None
+    -- Instance Methods --
+    + morse_code_str(removed_patterns: str): bool
+    + check_pattern(): None
+    + read_in_str(file: Any): None # Input from command line
+    -- Static Methods --
+    + print_palindrome_match(palindrome_check: bool): None
+    + main(): None
+}
+note right of Palindrome
+    Main class that uses the
+    functionality of the separate
+    classes PatternMatch and
+    MorseCode
+endnote
+Palindrome "string to check"-->"0...80" PatterMatch
+Palindrome "string fixed"--> "0...80" MorseCode
+class PatterMatch {
+    -- Class Attributes --
+    - __pattern_str: str #Regular expression
+    -- Class Methods --
+    + __init__(check_str: str): None
+    + getString_property(): str
+    + setString_property(input_str: str): None
+    -- Instance Methods --
+    + remove_str_patterns(): str
+}
+note left of PatterMatch
+    Class that uses regular
+    expression to remove
+    non-alpha numeric from
+    a string
+endnote
+class MorseCode {
+    -- Class Attributes --
+    - __morse_code_dict: dict
+    - __palindrome: str
+    -- Class Methods --
+    + __init__(str_match: str): None
+    + getMorse_code_str(): str
+    + setMorse_code_str(morse_code_str: str): None
+    + getPalindrome_str(): str
+    + setPalindrome_str(palindrome: str): None
+    -- Instance Methods --
+    + generate_code_str(): str
+}
+note right of MorseCode
+    Class that compares the fixed
+    string from the PatternMatch
+    class and creates a new string
+    with morse code equivalent of
+    the original string
+endnote
+class TestPalindromes {
+    -- Class Attributes --
+    + custom_alphabet: str
+    -- Class Methods --
+    + setUp(): None
+    + tearDown(): None
+    + test_morse_code_func(input_str: str): None
+    + test_morse_code_module(input_str: str): None
+    + test_pattern_remover(input_str: str): None
+}
+TestPalindromes --> Palindrome
+note left of TestPalindromes
+    Unittest module that tests
+    the functions of Palindrome
+    class
+endnote
+@enduml
