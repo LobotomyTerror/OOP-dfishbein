@@ -1,5 +1,8 @@
 pytest
-jupyter
+pytest-cov
+ipykernel
+jupyterlab
+notebook
 pymongo[srv]
 mypy
 hypothesis
@@ -7,4 +10,6 @@ flake8
 autopep8
 lxml
 requests
+pdoc
 kattis-cli
+pickleshare
