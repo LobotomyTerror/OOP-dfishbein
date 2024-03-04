@@ -1,0 +1,7 @@
+accepted: 1
+cpu_limit: 1 second
+difficulty: 3.0 Medium
+mem_limit: 2048 MB
+problemid: morsecodepalindromes
+submissions: 2
+title: Morse Code Palindromes
