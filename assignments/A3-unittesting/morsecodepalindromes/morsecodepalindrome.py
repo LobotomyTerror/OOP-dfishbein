@@ -15,81 +15,93 @@ import pattern as pat
 
 
 class Palindrome:
-    """_summary_
+    """Class that sets a string to be checked utilizing
+    the two modules morsecode and pattern to remove
+    unwanted characters and to check if the string is
+    either empty or a palindrome.
 
     Returns:
-        _type_: _description_
+        bool: Returns True or False if a string is a
+        palindrome or not.
     """
     __reversed_str = ""
     __morse_code = ""
 
     def __init__(self) -> None:
-        """_summary_
+        """Creates a class instance to empty, so it can
+        be set later.
         """
         self.str_check = ""
 
     @property
     def str_input(self) -> str:
-        """_summary_
+        """Returns class instance
 
         Returns:
-            str: _description_
+            str: class instance
         """
         return self.str_check
 
     @str_input.setter
     def str_input(self, input_str: str) -> None:
-        """_summary_
+        """Sets the class instance to a passed in
+        string
 
         Args:
-            input_str (str): _description_
+            input_str (str): string that is used to set
+            class instance
         """
         self.str_check = input_str
 
     @property
     def string_reversed(self) -> str:
-        """_summary_
+        """Returns a defined private class attribute
 
         Returns:
-            str: _description_
+            str: private class attribute
         """
         return self.__reversed_str
 
     @string_reversed.setter
     def string_reversed(self, reversed_str: str) -> None:
-        """_summary_
+        """Sets the private class attribute
 
         Args:
-            reversed_str (str): _description_
+            reversed_str (str): string that is used
+            to set the private class attribute
         """
         self.__reversed_str = reversed_str
 
     @property
     def morse_coded_str(self) -> str:
-        """_summary_
+        """Returns a defined private class attribute
 
         Returns:
-            str: _description_
+            str: private class attribute
         """
         return self.__morse_code
 
     @morse_coded_str.setter
     def morse_coded_str(self, morse_coded_str: str) -> None:
-        """_summary_
+        """Sets the private class attribute
 
         Args:
-            morse_coded_str (str): _description_
+            morse_coded_str (str): string that is used
+            to set the private class attribute
         """
         self.__morse_code = morse_coded_str
 
     def morse_code_str(self, removed_patterns: str) -> bool:
-        """_summary_
+        """Returns True or False if the morse coded string is
+        a palindrome when reversed
 
         Args:
-            removed_patterns (str): _description_
+            removed_patterns (str): A string that has been checked
+            for non-alpha numeric characters and stripped of them
 
         Returns:
-            bool: _description_
+            bool: Returns True if the string is a palindrome. Else
+            returns False in any other case
         """
         morse_code_str = mc.MorseCode(removed_patterns.upper())
         self.morse_coded_str = morse_code_str.generate_code_str()
@@ -101,21 +113,25 @@ class Palindrome:
         return False
 
     def check_pattern(self) -> None:
-        """_summary_
+        """Sets a string to be checked in the module PatterMatch
+        and then creates a new string that doesn't have non-alpha
+        numeric characters. Then calls a function to see if the string
+        is a palindrome or not
         """
         str_pattern = pat.PatternMatch(self.str_check)
-        removed_patterns = str_pattern.remove_str_patterns()
+        removed_patterns: str = str_pattern.remove_str_patterns()
         if removed_patterns:
-            palindrome_check = self.morse_code_str(removed_patterns)
+            palindrome_check: bool = self.morse_code_str(removed_patterns)
             self.print_palindrome_match(palindrome_check)
         else:
             self.print_palindrome_match(False)
 
     def read_in_str(self, file: Any) -> None:
-        """_summary_
+        """Reads in input from the command line
+        and strips newline characters from the string
 
         Args:
-            file (Any): _description_
+            file (Any): sys.stdin for reading in input
         """
         check_str: str = file.readline()
         self.str_check = check_str.rstrip()
@@ -123,10 +139,12 @@ class Palindrome:
 
     @staticmethod
     def print_palindrome_match(palindrome_check: bool) -> None:
-        """_summary_
+        """Prints the results of the morse_code_str return
+        of either True or False
 
         Args:
-            palindrome_check (bool): _description_
+            palindrome_check (bool): Either True or False variable
+            from the returned results
         """
         if palindrome_check:
             print(1)
@@ -135,7 +153,7 @@ class Palindrome:
 
     @staticmethod
     def main() -> None:
-        """_summary_
+        """Start of the class functions
         """
         palindrome = Palindrome()
         palindrome.read_in_str(sys.stdin)

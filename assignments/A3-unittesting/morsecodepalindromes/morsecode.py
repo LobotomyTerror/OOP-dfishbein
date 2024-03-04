@@ -1,15 +1,23 @@
-"""_summary_
+"""Module that uses a dict to compare characters of a
+string to set a new string with the values of each key
+match
 
     Returns:
-        _type_: _description_
+        str: Returns a string that has been changed into
+        the morse code equivalent of all the characters in
+        the original string
 """
 
 
 class MorseCode:
-    """_summary_
+    """Compares characters of a string against a class
+    attribute dictionary to set and return a new string
+    that contains a morse coded equivalent of the original
+    string
 
     Returns:
-        _type_: _description_
+        str: Morse coded string formed from an original
+        string
     """
     __morse_code_dict = {
         'A': '•-', 'B': '-•••', 'C': '-•-•', 'D': '-••',
@@ -25,54 +33,63 @@ class MorseCode:
     __palindrome = ""
 
     def __init__(self, str_match: str) -> None:
-        """_summary_
+        """Initializes a class instance from a string that
+        is passed in
 
         Args:
-            str_match (str): _description_
+            str_match (str): String that was cleaned up from
+            another module and used to set a new morse coded
+            string
         """
         self.str_match = str_match
 
     @property
     def morse_code_str(self) -> str:
-        """_summary_
+        """Returns class instance variable
 
         Returns:
-            str: _description_
+            str: class instance variable
         """
         return self.morse_code_str
 
     @morse_code_str.setter
     def morse_code_str(self, morse_code_str: str) -> None:
-        """_summary_
+        """Sets class instance variable
 
         Args:
-            morse_code_str (str): _description_
+            morse_code_str (str): string that is used
+            to set class instance variable
         """
         self.morse_code_str = morse_code_str
 
     @property
     def palindrome_str(self) -> str:
-        """_summary_
+        """Returns private class attribute variable
 
         Returns:
-            str: _description_
+            str: private class attribute
         """
         return self.__palindrome
 
     @palindrome_str.setter
     def palindrome_str(self, palindrome: str) -> None:
-        """_summary_
+        """Sets private class attribute variable
 
         Args:
-            palindrome (str): _description_
+            palindrome (str): string that is used to set
+            the private class attribute
         """
         self.__palindrome = palindrome
 
     def generate_code_str(self) -> str:
-        """_summary_
+        """Loops through the original string that was set
+        as the class instance variable and compares each
+        character against the key value in the class dictionary.
+        Returning a new string that is the equivalent of the original
+        but in morse code
 
         Returns:
-            str: _description_
+            str: String equivalent of original string in morse code
         """
         for _, char in enumerate(self.str_match):
             for key, value in self.__morse_code_dict.items():
