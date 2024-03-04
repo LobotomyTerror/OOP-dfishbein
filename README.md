@@ -17,21 +17,33 @@
 
 # Assignments
 
-
-## Assignment #0
+## Assignment 3
 
 
 | __Assignment Details__ | __Info__                                       |
 |------------------------|------------------------------------------------|
-| __Name__               | Sort Two Numbers                               |
-| __Description__        | Solving a simple Kattis problem [sorttwonumber](https://open.kattis.com/problems/sorttwonumbers) and getting Environment setup    |
-| __Due__                | 02/06/2024                                     |
-| __Difficulty__         | 1.4 as of 01/29/2024                           |
+| __Name__               | A3-Unittesting Morse Code Palindrome           |
+| __Description__        | Using Object-Oriented Design to solve Kattis problem [Morse Code Palindrome](https://open.kattis.com/problems/morsecodepalindromes) and using unittest library and hypothesis |
+| __Due__                | 03/07/2024                                     |
+| __Difficulty__         | 3.0 as of 3/04/2024                            |
 | __Status__             | Completed                                      |
-| __Location__           | https://github.com/LobotomyTerror/OOP-dfishbein/tree/main/assignments/assingment_one/sorttwonumbers                           |
+| __Location__           | https://github.com/LobotomyTerror/OOP-dfishbein/tree/main/assignments/A3-unittesting/morsecodepalindromes                      |
 | __Self Grade__         | 100/100                                        |
-| __Notes__ | Had a little trouble figuring out the kattis cli but was able to figure it out. Everything is working as of now and submitted              |
+| __Notes__ | Created a test file to initially to solve the Kattis problem but had a little trouble creating the classes for it because I couldn't figure out how to set it up. Once done was able to get it completed. Still need to work on understanding unittesting as well. |
 
+## Assignment 2
+
+
+| __Assignment Details__ | __Info__                                       |
+|------------------------|------------------------------------------------|
+| __Name__               | A2-OOD Convex Polygon Area                     |
+| __Description__        | Using Object-Oriented Design to solve Kattis problem [Convex Polygon Area](https://open.kattis.com/problems/convexpolygonarea) |
+| __Due__                | 02/28/2024                                     |
+| __Difficulty__         | 2.0 as of 2/20/2024                            |
+| __Status__             | Completed                                      |
+| __Location__           | https://github.com/LobotomyTerror/OOP-dfishbein/tree/main/assignments/A2-OOD/convexpolygonarea                           |
+| __Self Grade__         | 100/100                                        |
+| __Notes__ | Had a little trouble setting up at first and getting everything setup but after a little bit I was able to get the modules created. I also learned a lot of different aspects of OOD |
 
 ## Assignment 1
 
@@ -47,32 +59,19 @@
 | __Self Grade__         | 100/100                                        |
 | __Notes__ | Noticed a lot of areas that I could improve with Python but I also surprised myself with some of the other areas I did well on               |
 
+## Assignment #0
 
-## Assignment 2
-
-| __Assignment Details__ | __Info__                                       |
-|------------------------|------------------------------------------------|
-| __Name__               | A2-OOD Convex Polygon Area                     |
-| __Description__        | Using Object-Oriented Design to solve Kattis problem [Convex Polygon Area](https://open.kattis.com/problems/convexpolygonarea) |
-| __Due__                | 02/28/2024                                     |
-| __Difficulty__         | 2.0 as of 2/20/2024                            |
-| __Status__             | Completed                                      |
-| __Location__           | https://github.com/LobotomyTerror/OOP-dfishbein/tree/main/assignments/A2-OOD/convexpolygonarea                           |
-| __Self Grade__         | 100/100                                        |
-| __Notes__ | Had a little trouble setting up at first and getting everything setup but after a little bit I was able to get the modules created. I also learned a lot of different aspects of OOD |
-
-## Assignment 3
 
 | __Assignment Details__ | __Info__                                       |
 |------------------------|------------------------------------------------|
-| __Name__               | A3-Unittesting Morse Code Palindrome           |
-| __Description__        | Using Object-Oriented Design to solve Kattis problem [Morse Code Palindrome](https://open.kattis.com/problems/morsecodepalindromes) and using unittest library and hypothesis |
-| __Due__                | 03/07/2024                                     |
-| __Difficulty__         | 3.0 as of 3/04/2024                            |
+| __Name__               | Sort Two Numbers                               |
+| __Description__        | Solving a simple Kattis problem [sorttwonumber](https://open.kattis.com/problems/sorttwonumbers) and getting Environment setup    |
+| __Due__                | 02/06/2024                                     |
+| __Difficulty__         | 1.4 as of 01/29/2024                           |
 | __Status__             | Completed                                      |
-| __Location__           | https://github.com/LobotomyTerror/OOP-dfishbein/tree/main/assignments/A3-unittesting/morsecodepalindromes                      |
+| __Location__           | https://github.com/LobotomyTerror/OOP-dfishbein/tree/main/assignments/assingment_one/sorttwonumbers                           |
 | __Self Grade__         | 100/100                                        |
-| __Notes__ | Created a test file to initially to solve the Kattis problem but had a little trouble creating the classes for it because I couldn't figure out how to set it up. Once done was able to get it completed. Still need to work on understanding unittesting as well. |
+| __Notes__ | Had a little trouble figuring out the kattis cli but was able to figure it out. Everything is working as of now and submitted              |
 
 
 ## PlantUML CLI project
