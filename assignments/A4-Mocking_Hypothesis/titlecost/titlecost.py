@@ -13,7 +13,7 @@ class TitleCost:
         self.__movie_cap = MovieCap()
 
     @property
-    def movie_title(self) -> MovieTitle:
+    def movie_title(self) -> float:
         return self.__movie_title.movie_title
 
     @movie_title.setter
@@ -21,7 +21,7 @@ class TitleCost:
         self.__movie_title.movie_title = movie_title
 
     @property
-    def movie_cap(self) -> MovieCap:
+    def movie_cap(self) -> float:
         return self.__movie_cap.movie_cap
 
     @movie_cap.setter
