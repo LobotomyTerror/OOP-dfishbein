@@ -35,8 +35,8 @@ jobs:
         # flake8 ./assignments --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Check types with mypy
       run: |
-        mypy --strict --allow-untyped-decorators --ignore-missing-imports ./assignments/A3-unittesting/ ./assignments/A4-Mocking_Hypothesis
+        mypy --strict --allow-untyped-decorators --ignore-missing-imports assignments/A3-unittesting/morsecodepalindromes/tests assignments/A4-Mocking_Hypothesis/titlecost/tests
     - name: Test with pytest
       run: |
-        pytest --verbose ./assignments/A3-unittesting/ ./assignments/A4-Mocking_Hypothesis
+        pytest --verbose assignments/A3-unittesting/morsecodepalindromes/tests assignments/A4-Mocking_Hypothesis/titlecost/tests
         
