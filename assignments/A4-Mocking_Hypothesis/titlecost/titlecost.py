@@ -59,4 +59,4 @@ class TitleCost:
 
 
 if __name__ == "__main__":
-    TitleCost.main()
+    TitleCost.main()  # pragma: no cover

@@ -41,6 +41,32 @@ class TestTitleCost(unittest.TestCase):
                 actual_ans: str = mock_stdout.getvalue().strip()
         self.assertEqual(expected_ans, actual_ans)
 
+    def test_compare_size(self) -> None:
+        self.assertEqual(k_test.compare_size(15.0, 5.43), 5.43)
+        self.assertEqual(k_test.compare_size(5.0, 45.43), 5.0)
+        self.assertEqual(k_test.compare_size(15.0, 15.0), 15.0)
+
+    def test_main(self) -> None:
+        with patch('sys.stdin', new=StringIO(
+            "GoneWithTheWind 13.341\n")
+        ):
+            with patch('sys.stdout', new=StringIO()) as mock_stdout:
+                k_test.main()
+                captured_out = mock_stdout.getvalue().strip()
+        self.assertEqual(captured_out, '13.341')
+
+    def test_titlecost_compare(self) -> None:
+        with patch(
+            'sys.stdin',
+            new=StringIO("GoneWithTheWind 15.0\n")
+        ):
+            with patch(
+                    'sys.stdout',
+                    new=StringIO()) as mock_stdout:
+                self.title_cost.main()
+                expected_ans = mock_stdout.getvalue().strip()
+        self.assertEqual(expected_ans, '15')
+
 
 if __name__ == "__main__":
-    unittest.main()
+    unittest.main()  # pragma: no cover

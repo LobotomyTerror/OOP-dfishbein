@@ -14,4 +14,4 @@ class MovieTitle:
 
 
 if __name__ == "__main__":
-    MovieTitle()
+    MovieTitle()  # pragma: no cover

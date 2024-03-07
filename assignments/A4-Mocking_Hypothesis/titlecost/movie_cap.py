@@ -14,4 +14,4 @@ class MovieCap:
 
 
 if __name__ == "__main__":
-    MovieCap()
+    MovieCap()  # pragma: no cover
