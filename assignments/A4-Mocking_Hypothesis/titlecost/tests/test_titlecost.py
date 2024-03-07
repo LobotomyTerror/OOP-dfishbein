@@ -1,7 +1,7 @@
 import unittest
-from hypothesis import given, settings, strategies as st, Verbosity
 from unittest.mock import patch
 from io import StringIO
+from hypothesis import given, settings, strategies as st, Verbosity
 from titlecost import TitleCost
 import k_test
 
