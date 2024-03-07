@@ -39,5 +39,7 @@ jobs:
         mypy --strict --allow-untyped-decorators --ignore-missing-imports ./assignments/A4-Mocking_Hypothesis/titlecost/
     - name: Test with pytest
       run: |
-        pytest --verbose ./assignments/A3-unittesting/morsecodepalindromes/tests pytest --verbose ./assignments/A4-Mocking_Hypothesis/titlecost/tests
+        pytest --verbose ./assignments/A3-unittesting/morsecodepalindromes/tests 
+        pytest --verbose ./assignments/A4-Mocking_Hypothesis/titlecost/tests
+        
         
