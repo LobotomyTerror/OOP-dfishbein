@@ -9,8 +9,9 @@ all: check-style check-type run-test pytest_cov clean
 
 .PHONY: check-type
 check-type:
-	$(TYPE_CHECK) assignments/
-
+	$(TYPE_CHECK) assignments/A3-unittesting/morsecodepalindromes
+	$(TYPE_CHECK) assignments/A4-Mocking_Hypothesis/titlecost
+	
 .PHONY: check-style
 check-style:
 	$(STYLE_CHECK) assignments/
@@ -18,7 +19,8 @@ check-style:
 # discover and run all tests
 .PHONY: run-test
 run-test:
-	$(TEST) $(TEST_ARGS) assignments/
+	$(TEST) $(TEST_ARGS) assignments/A3-unittesting/morsecodepalindromes/tests
+	$(TYPE_CHECK) assignments/A4-Mocking_Hypothesis/titlecost/tests
 
 .PHONY: pytest_cov
 pytest_cov:
