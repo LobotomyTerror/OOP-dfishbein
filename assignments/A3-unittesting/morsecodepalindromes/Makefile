@@ -3,8 +3,7 @@ TEST_ARGS = -s -v --color=yes --code-highlight=yes
 TYPE_TEST = mypy --strict --show-error-code-links --pretty --allow-untyped-decorators
 STYLE_TEST = flake8
 FIX_STYLE = autopep8 -v -aa -r --in-place
-PYTEST = pytest
-COV_ARGS = --cov=. --cov-report=html:coverage_report
+COV_ARGS = --cov=. --cov=/tests --cov-report=html:coverage_report
 
 .PHONY: all
 all: auto_fix check_type check_style run_tests pytest_cov clean
@@ -27,12 +26,12 @@ run_tests:
 
 .PHONY: pytest_cov
 pytest_cov:
-	$(PYTEST) $(COV_ARGS)
+	$(TEST) $(COV_ARGS)
 
 .PHONY: clean
 clean:
-	@rm -rf __pycache__
-	@rm -rf .pytest_cache
-	@rm -rf .mypy_cache
-	@rm -rf .hypothesis
-	@rm -rf .coverage
+	@rm -rf `find . -type d -name __pycache__`
+	@rm -rf `find . -type d -name .pytest_cache`
+	@rm -rf `find . -type d -name .mypy_cache`
+	@rm -rf `find . -type d -name .hypothesis`
+	@rm -rf `find . -type d -name .coverage`
