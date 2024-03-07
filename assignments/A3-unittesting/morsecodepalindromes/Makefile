@@ -6,7 +6,7 @@ FIX_STYLE = autopep8 -v -aa -r --in-place
 COV_ARGS = --cov=. --cov=/tests --cov-report=html:coverage_report
 
 .PHONY: all
-all: auto_fix check_type check_style run_tests pytest_cov clean
+all: auto_fix check_type check_style run_tests clean
 
 .PHONY: auto_fix
 auto_fix:
