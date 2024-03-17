@@ -17,6 +17,22 @@
 
 # Assignments
 
+
+## Assignment 4
+
+
+| __Assignment Details__ | __Info__                                       |
+|------------------------|------------------------------------------------|
+| __Name__               | A4 - Mocking and Hypothesis                    |
+| __Description__        | Using Object-Oriented Design to solve Kattis problem [Title Cost](https://open.kattis.com/problems/titlecost) and using unittest library along with mocking and hypothesis |
+| __Due__                | 04/19/2024                                     |
+| __Difficulty__         | 1.7 as of 3/04/2024                            |
+| __Status__             | Completed                                      |
+| __Location__           | https://github.com/LobotomyTerror/OOP-dfishbein/tree/main/assignments/A4-Mocking_Hypothesis/titlecost                     |
+| __Self Grade__         | 100/100                                        |
+| __Notes__ | Was able to solve the problem relatively quickly and didn't really have any trouble solving the kattis problem or setting up the project folder |
+
+
 ## Assignment 3
 
 
