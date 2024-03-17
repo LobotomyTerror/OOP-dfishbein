@@ -41,5 +41,17 @@ jobs:
       run: |
         pytest --verbose ./assignments/A3-unittesting/morsecodepalindromes/tests 
         pytest --verbose ./assignments/A4-Mocking_Hypothesis/titlecost/tests
+    - name: Coverage report
+      run: |
+        pytest --cov-report=xml:./assignments/A3-unittesting/morsecodepalindromes/coverage.xml --cov=./assignments/A3-unittesting/morsecodepalindromes/ ./assignments/A3-unittesting/morsecodepalindromes/tests
+        pytest --cov-report=xml:./assignments/A4-Mocking_Hypothesis/titlecost/coverage.xml --cov=./assignments/A4-Mocking_Hypothesis/titlecost/ ./assignments/A4-Mocking_Hypothesis/titlecost/tests
+    - name: Uploading Coverage Reports
+      uses: codecov/codecov-action@v4.0.1
+      with:
+        fail_ci_if_error: false
+        files: ./assignments/A3-unittesting/morsecodepalindromes/coverage.xml \
+          ./assignments/A4-Mocking_Hypothesis/titlecost/coverage.xml
+        token: ${{ secrets.CODECOV_TOKEN }}
+        slug: LobotomyTerror/OOP-dfishbein
         
         
