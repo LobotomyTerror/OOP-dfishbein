@@ -51,7 +51,7 @@ jobs:
         fail_ci_if_error: false
         files: ./assignments/A3-unittesting/morsecodepalindromes/coverage.xml \
           ./assignments/A4-Mocking_Hypothesis/titlecost/coverage.xml
-        token: ${{ secrets.CODECOV_TOKEN }}
+        token: ${{ secrets.CODECOV_TOKEN_TWO }}
         slug: LobotomyTerror/OOP-dfishbein
         
         
