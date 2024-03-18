@@ -1,6 +1,7 @@
 # CI/CD Badge
 
 ![ci/cd](https://github.com/LobotomyTerror/OOP-dfishbein/actions/workflows/ci-test.yml/badge.svg)
+[![Code Coverage](https://img.shields.io/codecov/c/github/LobotomyTerror/OOP-dfishbein?label=codecov&logo=codecov)](https://app.codecov.io/gh/LobotomyTerror/OOP-dfishbein)
 
 # Course Description
 
