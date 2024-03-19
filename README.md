@@ -32,6 +32,7 @@
 | __Location__           | https://github.com/LobotomyTerror/OOP-dfishbein/tree/main/assignments/A4-Mocking_Hypothesis/titlecost                     |
 | __Self Grade__         | 100/100                                        |
 | __Notes__ | Was able to solve the problem relatively quickly and didn't really have any trouble solving the kattis problem or setting up the project folder |
+| __Codecov Report__ | Couldn't get it to work for the tag so my report is 100% |
 
 
 ## Assignment 3
