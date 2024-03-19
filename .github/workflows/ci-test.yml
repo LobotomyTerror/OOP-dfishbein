@@ -45,7 +45,6 @@ jobs:
       run: |
         pytest --cov-report=xml:./assignments/A3-unittesting/morsecodepalindromes/coverage.xml --cov=./assignments/A3-unittesting/morsecodepalindromes/ ./assignments/A3-unittesting/morsecodepalindromes/tests
         pytest --cov-report=xml:./assignments/A4-Mocking_Hypothesis/titlecost/coverage.xml --cov=./assignments/A4-Mocking_Hypothesis/titlecost/ ./assignments/A4-Mocking_Hypothesis/titlecost/tests
-        codecov
     - name: Uploading Coverage Reports
       uses: codecov/codecov-action@v4.0.1
       with:
