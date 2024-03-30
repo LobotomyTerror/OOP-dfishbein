@@ -14,3 +14,9 @@ pdoc
 kattis-cli
 pickleshare
 pandas
+textual
+textual-dev
+textual-autocomplete
+rich
+geocoder
+geopy
