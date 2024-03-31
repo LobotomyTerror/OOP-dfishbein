@@ -1,6 +1,6 @@
-import json
+# import json
 import requests
-from typing import List, Tuple, Any, Dict
+from typing import List, Tuple, Any
 # from main import WeatherAppMain
 import config
 
@@ -11,7 +11,7 @@ class WeatherAPI:
     __alerts: List
     __api_key: str
 
-    def __init__(self, user_loc: Tuple=('39.7420', '-104.9915')) -> None:
+    def __init__(self, user_loc: Tuple = ('39.7420', '-104.9915')) -> None:
         self.user_loc = user_loc
         self.__api_key = config.API_KEY
 
@@ -59,7 +59,6 @@ class WeatherAPI:
             return response.json()
         else:
             return response.status_code
-        
 
     def set_weather_data(self) -> None:
         response = self.weather_api_call()

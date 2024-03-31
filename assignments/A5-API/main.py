@@ -18,7 +18,10 @@ class WeatherAppMain:
 
     @staticmethod
     def user_input(file: Any) -> str:
-        print("[bright white]Enter a location separated by a ,: [/bright white]")
+        print(
+            "[bright white]"
+            "Enter a location separated by a ,: "
+            "[/bright white]")
         location: str = file.readline().rstrip()
         return location
 
@@ -36,6 +39,7 @@ class WeatherData(WeatherAppMain):
 
     def call_api(self) -> None:
         pass
+
 
 if __name__ == "__main__":
     WeatherAppMain.main()
