@@ -41,6 +41,8 @@ class GeoLocation():
         else:
             self.user_loc = (location.latitude, location.longitude)
 
+    #### Below is just for testing ####
+
     def print_user_loc(self) -> None:
         print(f'{self.user_loc}')
 
