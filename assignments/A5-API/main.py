@@ -90,7 +90,8 @@ class WeatherData:
         curr_w_output += f"[b]Cloudiness:[/] {curr_w.get('clouds')}%\n"
         curr_w_output += f"[b]UV Index:[/] {curr_w.get('uvi')}\n"
         curr_w_output += \
-            f"[b]Visibility:[/] {(curr_w.get('visibility') * 3.28):.2f} Foot/Feet\n"
+            f"[b]Visibility:[/] " \
+            f"{(curr_w.get('visibility') * 3.28):.2f} Foot/Feet\n"
         curr_w_output += f"[b]Wind Speed:[/] {curr_w.get('wind_speed')}mph\n"
 
         if curr_w.get('wind_gust') is not None:
@@ -217,7 +218,8 @@ class WeatherData:
                     self.convert_to_datetime(float(aa.get('end')), 0)
                 aa_output += f"[b]Start Time:[/] {start_time}\n"
                 aa_output += f"[b]End Time:[/] {end_time}\n"
-                aa_output += f"[b]Alert Description:[/] {aa.get('description')}\n"
+                aa_output += \
+                    f"[b]Alert Description:[/] {aa.get('description')}\n"
 
                 panel = Panel(
                     aa_output,
