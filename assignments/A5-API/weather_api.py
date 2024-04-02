@@ -1,7 +1,5 @@
-# import json
 import requests
 from typing import List, Tuple, Any, Dict
-# from main import WeatherAppMain
 import config
 
 
