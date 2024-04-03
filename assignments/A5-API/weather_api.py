@@ -1,42 +1,45 @@
-import requests
+import requests  # type: ignore
 from typing import List, Tuple, Any, Dict
 import config
 
 
 class WeatherAPI:
-    __curr_weather: Dict
-    __daily_weather: List
-    __alerts: Dict
+    __curr_weather: Dict[str, Any]
+    __daily_weather: List[Dict[str, Any]]
+    __alerts: List[Dict[str, Any]]
     __api_key: str
     __timezone: str
-    __tz_offset: int
+    __tz_offset: float
 
-    def __init__(self, user_loc: Tuple = ('39.7420', '-104.9915')) -> None:
+    def __init__(
+        self,
+        user_loc: Tuple[str, str] = ('39.7420', '-104.9915')
+    ) -> None:
         self.user_loc = user_loc
         self.__api_key = config.API_KEY
 
     @property
-    def current_weather(self) -> Dict[Any, Any]:
+    def current_weather(self) -> Dict[str, Any]:
         return self.__curr_weather
 
     @current_weather.setter
-    def current_weather(self, curr_weather: Dict[Any, Any]) -> None:
+    def current_weather(self, curr_weather: Dict[str, Any]) -> None:
         self.__curr_weather = curr_weather
 
     @property
-    def daily_weather(self) -> List[Any]:
+    def daily_weather(self) -> List[Dict[str, Any]]:
         return self.__daily_weather
 
     @daily_weather.setter
-    def daily_weather(self, daily_weather: List[Any]) -> None:
+    def daily_weather(self, daily_weather: List[Dict[str, Any]]) -> None:
         self.__daily_weather = daily_weather
 
     @property
-    def alerts(self) -> List[Any]:
+    def alerts(self) -> List[Dict[str, Any]]:
         return self.__alerts
 
     @alerts.setter
-    def alerts(self, weather_alerts: List[Any]) -> None:
+    def alerts(self, weather_alerts: List[Dict[str, Any]]) -> None:
         self.__alerts = weather_alerts
 
     @property

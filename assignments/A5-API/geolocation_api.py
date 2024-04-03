@@ -1,7 +1,7 @@
 import sys
 from typing import Tuple, Any
-from geopy.geocoders import Nominatim
-from geopy.exc import GeocoderTimedOut
+from geopy.geocoders import Nominatim  # type: ignore
+from geopy.exc import GeocoderTimedOut  # type: ignore
 
 
 class GeoLocation():
@@ -11,9 +11,9 @@ class GeoLocation():
 
     def __init__(
         self,
-        default_lat='39.7420',
-        default_lon='-104.9915'
-            ) -> None:
+        default_lat: str = '39.7420',
+        default_lon: str = '-104.9915'
+    ) -> None:
         # Defaults to Denver, CO
         self.__user_lat = default_lat
         self.__user_lon = default_lon
@@ -23,7 +23,7 @@ class GeoLocation():
         return self.__user_lat, self.__user_lon
 
     @user_loc.setter
-    def user_loc(self, latlon: Tuple) -> None:
+    def user_loc(self, latlon: Tuple[str, str]) -> None:
         self.__user_lat = str(latlon[0])
         self.__user_lon = str(latlon[1])
 
@@ -47,7 +47,7 @@ class GeoLocation():
     @staticmethod
     def get_input(file: Any) -> str:
         file.stdout.write('Enter an address splitting with a ,: ')
-        address = file.stdin.readline().rstrip()
+        address: str = file.stdin.readline().rstrip()
         return address
 
     @staticmethod

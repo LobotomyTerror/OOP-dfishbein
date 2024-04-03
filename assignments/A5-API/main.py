@@ -1,8 +1,7 @@
 from datetime import datetime, timezone
-import pytz
-from typing import Tuple, Dict
+import pytz  # type: ignore
+from typing import Tuple, Dict, Any, List, Optional
 from rich import print
-from rich.layout import Layout
 from rich.prompt import Prompt
 from rich.panel import Panel
 from geolocation_api import GeoLocation
@@ -12,7 +11,6 @@ from weather_api import WeatherAPI
 class WeatherAppMain:
     def __init__(self) -> None:
         self.geo_loc = GeoLocation()
-        self.layout = Layout()
         self.prompt = Prompt()
 
     def lookup(self, location: str) -> None:
@@ -52,7 +50,7 @@ class WeatherData:
     def call_api(self) -> None:
         self.api.set_weather_data()
 
-    def convert_to_datetime(self, utc_num: float, frmt_opt: int) -> datetime:
+    def convert_to_datetime(self, utc_num: float, frmt_opt: int) -> Any:
         if frmt_opt == 0:
             fmt = '%a %-d %B, %Y %-I:%M %p %Z%z'
         else:
@@ -62,26 +60,44 @@ class WeatherData:
         loc_dt = loc_tz.normalize(utc_dt.astimezone(loc_tz))
         return loc_dt.strftime(fmt)
 
-    def current_weather_data(self) -> None:
+    def current_weather_data(self) -> None:  # noqa: C901
         curr_w = self.api.current_weather
-        curr_time = self.convert_to_datetime(float(curr_w.get('dt')), 0)
-        curr_sunrise = \
-            self.convert_to_datetime(float(curr_w.get('sunrise')), 1)
-        curr_sunset = \
-            self.convert_to_datetime(float(curr_w.get('sunset')), 1)
+
+        if curr_w.get('dt') is not None:
+            curr_time = \
+                self.convert_to_datetime(float(str(curr_w.get('dt'))), 0)
+        else:
+            raise ValueError('Date Time is Undefined')
+
+        if curr_w.get('sunrise') is not None:
+            curr_sunrise = \
+                self.convert_to_datetime(float(str(curr_w.get('sunrise'))), 1)
+        else:
+            raise ValueError('Sunrise is Undefined')
+
+        if curr_w.get('sunset') is not None:
+            curr_sunset = \
+                self.convert_to_datetime(float(str(curr_w.get('sunset'))), 1)
+        else:
+            raise ValueError('Sunset is Undefined')
 
         subtitle = f"[b]Current Weather for {self.location}[/]"
         title = f"[b]{curr_time}[/]"
         curr_w_output = f"[b]Sunrise:[/] {curr_sunrise}\n"
         curr_w_output += f"[b]Sunset:[/] {curr_sunset}\n"
 
-        description = curr_w.get('weather')
-        for desc in description:
-            main = desc.get('main')
-            main_desc = desc.get('description')
-            if main and main_desc:
-                curr_w_output += \
-                    f"[b]Description:[/] {main} - {main_desc}\n"
+        description: List[Dict[str, Any]]
+        weather_data: Optional[List[Dict[str, Any]]] = curr_w.get('weather')
+        if weather_data is not None:
+            description = weather_data
+            for desc in description:
+                main = desc.get('main')
+                main_desc = desc.get('description')
+                if main and main_desc:
+                    curr_w_output += \
+                        f"[b]Description:[/] {main} - {main_desc}\n"
+        else:
+            raise ValueError('Empyt Weather Data List')
 
         curr_w_output += \
             f"[b]Temperature:[/] {curr_w.get('temp')}\N{DEGREE SIGN}F " \
@@ -89,24 +105,35 @@ class WeatherData:
         curr_w_output += f"[b]Humidity:[/] {curr_w.get('humidity')}%\n"
         curr_w_output += f"[b]Cloudiness:[/] {curr_w.get('clouds')}%\n"
         curr_w_output += f"[b]UV Index:[/] {curr_w.get('uvi')}\n"
-        curr_w_output += \
-            f"[b]Visibility:[/] " \
-            f"{(curr_w.get('visibility') * 3.28):.2f} Foot/Feet\n"
+
+        v_str: str | None = curr_w.get('visibility')
+        if v_str is not None:
+            v_float: float = float(v_str)
+            curr_w_output += (
+                f"[b]Visibility:[/] "
+                f"{(v_float * 3.28):.2f} "
+                f"Foot/Feet\n"
+            )
+        else:
+            raise ValueError('Visibility is Undefined')
+
         curr_w_output += f"[b]Wind Speed:[/] {curr_w.get('wind_speed')}mph\n"
 
         if curr_w.get('wind_gust') is not None:
             curr_w_output += \
                 f"[b]Wind Gusts:[/] {curr_w.get('wind_gust')}mph\n"
-        curr_rain: Dict = curr_w.get('rain')
-        if curr_rain:
+
+        curr_rain: Dict[str, Any] | None = curr_w.get('rain')
+        if curr_rain is not None:
             curr_w_output += \
                 f"[b]Current Precipitation:[/] " \
-                f"{curr_rain.get('1h') / 25.4}\n"
-        curr_snow: Dict = curr_w.get('snow')
-        if curr_snow:
+                f"{float(str(curr_rain.get('1h'))) / 25.4}\n"
+
+        curr_snow: Dict[str, Any] | None = curr_w.get('snow')
+        if curr_snow is not None:
             curr_w_output += \
                 f"[b]Current Snow Accumulation:[/] " \
-                f"{curr_snow.get('1h') / 25.4}\n"
+                f"{float(str(curr_snow.get('1h'))) / 25.4}\n"
 
         panel = Panel(
             curr_w_output,
@@ -117,18 +144,39 @@ class WeatherData:
         )
         print(panel)
 
-    def daily_weather(self) -> None:
+    def daily_weather(self) -> None:  # noqa: C901
         for dw in self.api.daily_weather:
-            dt = \
-                self.convert_to_datetime(float(dw.get('dt')), 0)
-            sr = \
-                self.convert_to_datetime(float(dw.get('sunrise')), 1)
-            sst = \
-                self.convert_to_datetime(float(dw.get('sunset')), 1)
-            mr = \
-                self.convert_to_datetime(float(dw.get('moonrise')), 1)
-            mst = \
-                self.convert_to_datetime(float(dw.get('moonset')), 1)
+            if dw.get('dt') is not None:
+                dt = \
+                    self.convert_to_datetime(float(str(dw.get('dt'))), 0)
+
+            if dw.get('sunrise') is not None:
+                sr = \
+                    self.convert_to_datetime(
+                        float(str(dw.get('sunrise'))),
+                        1
+                    )
+
+            if dw.get('sunset') is not None:
+                sst = \
+                    self.convert_to_datetime(
+                        float(str(dw.get('sunset'))),
+                        1
+                    )
+
+            if dw.get('moonrise') is not None:
+                mr = \
+                    self.convert_to_datetime(
+                        float(str(dw.get('moonrise'))),
+                        1
+                    )
+
+            if dw.get('moonset') is not None:
+                mst = \
+                    self.convert_to_datetime(
+                        float(str(dw.get('moonset'))),
+                        1
+                    )
 
             title = f"[b]{dt}[/]"
             subtitle = f"[b]Daily Weather Updates for {self.location}[/]"
@@ -175,9 +223,12 @@ class WeatherData:
                 f"{dw.get('wind_deg')}\N{DEGREE SIGN}\n"
             dw_output += f"[b]Cloudiness:[/] {dw.get('clouds')}%\n"
             dw_output += f"[b]UV Index:[/] {dw.get('uvi')}\n"
-            dw_output += \
-                f"[b]Probability of Precipitation:[/] " \
-                f"{dw.get('pop') * 100}%\n"
+
+            pop: float | None = dw.get('pop')
+            if pop is not None:
+                dw_output += \
+                    f"[b]Probability of Precipitation:[/] " \
+                    f"{pop * 100}%\n"
 
             if dw.get('rain') is not None:
                 dw_output += \
@@ -188,12 +239,18 @@ class WeatherData:
                 dw_output += \
                     f"[b]Snow Accumulation:[/] {dw.get('snow')} inch/hour\n"
 
-            description = dw.get('weather')
-            for desc in description:
-                main = desc.get('main')
-                main_desc = desc.get('description')
-                if main and main_desc:
-                    dw_output += f"[b]Description:[/] {main} - {main_desc}\n"
+            description: List[Dict[str, Any]]
+            weather_data: Optional[List[Dict[str, Any]]] = dw.get('weather')
+            if weather_data is not None:
+                description = weather_data
+                for desc in description:
+                    main = desc.get('main')
+                    main_desc = desc.get('description')
+                    if main and main_desc:
+                        dw_output += \
+                            f"[b]Description:[/] {main} - {main_desc}\n"
+            else:
+                raise ValueError('Empyt Weather Data List')
 
             panel = Panel(
                 dw_output,
@@ -212,10 +269,20 @@ class WeatherData:
                 title = f"[b]Advisory Alerts for {self.location}[/]\n"
                 aa_output = f"[b]Alert Sender:[/] {aa.get('sender_name')}\n"
                 aa_output += f"[b]Event Name:[/] {aa.get('event')}\n"
-                start_time = \
-                    self.convert_to_datetime(float(aa.get('start')), 0)
-                end_time = \
-                    self.convert_to_datetime(float(aa.get('end')), 0)
+                if aa.get('start') is not None:
+                    start_time = \
+                        self.convert_to_datetime(
+                            float(str(aa.get('start'))),
+                            0
+                        )
+
+                if aa.get('end') is not None:
+                    end_time = \
+                        self.convert_to_datetime(
+                            float(str(aa.get('end'))),
+                            0
+                        )
+
                 aa_output += f"[b]Start Time:[/] {start_time}\n"
                 aa_output += f"[b]End Time:[/] {end_time}\n"
                 aa_output += \
