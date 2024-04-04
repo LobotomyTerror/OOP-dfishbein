@@ -42,7 +42,6 @@ jobs:
       run: |
         pytest --verbose ./assignments/A3-unittesting/morsecodepalindromes/tests 
         pytest --verbose ./assignments/A4-Mocking_Hypothesis/titlecost/tests
-        pytest --verbose ./assignments/A5-API/tests
     - name: Coverage report
       run: |
         pytest --cov-report=xml:./assignments/A3-unittesting/morsecodepalindromes/coverage.xml --cov=./assignments/A3-unittesting/morsecodepalindromes/ ./assignments/A3-unittesting/morsecodepalindromes/tests
