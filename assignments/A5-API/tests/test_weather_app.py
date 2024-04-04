@@ -35,7 +35,7 @@ def convert_to_datetime(tz: str, utc_num: float, frmt_opt: int) -> Any:
         fmt = '%a %-d %B, %Y %-I:%M %p %Z%z'
     else:
         fmt = '%-I:%M %p %Z%z'
-    utc_dt = datetime.fromtimestamp(timestamp=utc_num, tz=timezone.utc)
+    utc_dt = datetime.fromtimestamp(utc_num, tz=timezone.utc)
     loc_tz = pytz.timezone(tz)
     loc_dt = loc_tz.normalize(utc_dt.astimezone(loc_tz))
     return loc_dt.strftime(fmt)
