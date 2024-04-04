@@ -19,6 +19,22 @@
 # Assignments
 
 
+## Assignment 5
+
+
+| __Assignment Details__ | __Info__                                       |
+|------------------------|------------------------------------------------|
+| __Name__               | A5 - API                                       |
+| __Description__        | Using an API and processing the data to print out weather data |
+| __Due__                | 03/30/2024                                     |
+| __Difficulty__         | N/A                                            |
+| __Status__             | Completed                                      |
+| __Location__           | https://github.com/LobotomyTerror/OOP-dfishbein/tree/main/assignments/A5-API                     |
+| __Self Grade__         | 90/100                                        |
+| __Notes__ | I was able to get it done pretty quickly, but I was having trouble with printing out using the Textualize module thus I had to change to just using Rich CLI printing instead |
+| __Codecov Report__ | 99% I commented out some lines throughout my program because there wasn't a way to test againsnt it |
+
+
 ## Assignment 4
 
 
