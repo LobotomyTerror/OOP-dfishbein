@@ -99,7 +99,7 @@ class WeatherData:
             location: str
     ) -> None:
         """Initializes the WeatherAPI class with the
-        tuple containing the lat and lon. Along with
+        tuple containing the lat and lon as strings. Along with
         the user supplied address
 
         Args:
