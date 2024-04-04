@@ -1,0 +1,103 @@
+@startuml A5-API
+class WeatherAppMain {
+    -- Class Methods --
+    + __init__(): None
+    + lookup(self, location: str): None
+    + getLocation(): Tuple[str, str]
+    + user_input(): str
+    -- Static Method --
+    + main(): None
+}
+note right of WeatherAppMain
+    Main class that starts the program
+    run and accesses the rest of the modules
+    extending this main class.
+endnote
+WeatherAppMain "Method calls"--> WeatherData
+GeoLocation "Latitude, Longitude"<--"Supplied Address" WeatherAppMain
+class WeatherData {
+     -- Class Methods --
+    + __init__(loc: Tuple[str, str], location: str): None
+    + call_api(): None
+    + convert_to_datetime(utc_num: float, frmt_opt: int): Any
+    + current_weather_data(): None
+    + daily_weather(): None
+    + weather_alerts(): None
+    -- Static Method --
+    + print_panel(output_str: str, title: str | None, subtitle: str | None): None
+}
+note left of WeatherData
+    Begins the call to a separate module
+    that calls the API and stores the data.
+    This class then accesses and processes
+    the data that was returned.
+endnote
+WeatherData "API Call"-->"Current Weather, Daily Weather, Alerts" WeatherAPI
+class GeoLocation {
+    -- Class Attributes --
+    - __user_lat: str
+    - __user_lon: str
+    - __user_loc: Nominatim
+    -- Class Methods --
+    + __init__(default_lat: str = '39.7420', default_lon: str = '-104.9915'): None
+    + get_user_location(): Tuple[str, str]
+    + setter_user_location(latlon: Tuple[str, str]): None
+    + lat_lon_lookup(address: str): None
+    + print_user_loc(): None
+    -- Static Methods --
+    + get_input(file: Any): str
+    + main(): None
+}
+note left of GeoLocation
+    Class that gets and stores
+    latitude and longitude values
+    based on user supplied address
+endnote
+class WeatherAPI {
+    -- Class Attributes --
+    - __curr_weather: Dict[str, Any]
+    - __daily_weather: List[Dict[str, Any]]
+    - __alerts: List[Dict[str, Any]]
+    - __cod_error: Dict[str, Any]
+    - __api_key: str
+    - __timezone: str
+    -- Class Methods --
+    + __init__(user_loc: Tuple[str, str] = ('39.7420', '-104.9915')): None
+    + getter_current_weather(): Dict[str, Any]
+    + setter_current_weather(curr_weather: Dict[str, Any]): None
+    + getter_daily_weather(): List[Dict[str, Any]]
+    + setter_daily_weather(daily_weather: List[Dict[str, Any]]): None
+    + getter_alerts(): List[Dict[str, Any]]
+    + setter_alerts(weather_alerts: List[Dict[str, Any]]): None
+    + getter_timezone_loc(): str
+    + setter_timezone_loc(tz: str): None
+    + getter_cod_error(): Dict[str, Any]
+    + setter_cod_error(errors: Dict[str, Any]): None
+    + api_key() -> str
+    + weather_api_call(): Any
+    + set_weather_data(): None
+    + separate_lists(response: Any): None
+    + print_errors(): None
+}
+note right of WeatherAPI
+    Handles the API call and stores
+    the data that is returned from
+    the call. Then used for accessing data
+endnote
+class TestWeatherAPI {
+    + convert_to_datetime(tz: str, utc_num: float, frmt_opt: int): Any
+    -- Class Methods --
+    + setUp(): None
+    + test_api_call(ad_dict: Dict[str, Any]): None
+    + test_geopy(ad_dict: Dict[str, Any]): None
+    + test_main_app(): None
+    + test_geolocation(): None
+    + test_weatherapi(): None
+    + test_main_alerts(): None
+    + test_main_alerts2(): None
+}
+note right of TestWeatherAPI
+    Unittest class to test all the modules
+    and individual functions
+endnote
+@enduml
