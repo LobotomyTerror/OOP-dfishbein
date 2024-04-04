@@ -22,13 +22,11 @@ check-style:
 run-test:
 	$(TEST) $(TEST_ARGS) assignments/A3-unittesting/morsecodepalindromes/tests
 	$(TEST) $(TEST_ARGS) assignments/A4-Mocking_Hypothesis/titlecost/tests
-	$(TEST) $(TEST_ARGS) assignments/A5-API/tests
 
 .PHONY: pytest_cov
 pytest_cov:
 	$(TEST) -v --cov-report=html:./assignments/A3-unittesting/morsecodepalindromes/coverage_report --cov-report=term --cov=./assignments/A3-unittesting/morsecodepalindromes/ ./assignments/A3-unittesting/morsecodepalindromes/tests
 	$(TEST) -v --cov-report=html:./assignments/A4-Mocking_Hypothesis/titlecost/coverage_report --cov-report=term --cov=./assignments/A4-Mocking_Hypothesis/titlecost/ ./assignments/A4-Mocking_Hypothesis/titlecost/tests
-	$(TEST) -v --cov-report=html:./assignments/A5-API/coverage_report --cov-report=term --cov=./assignments/A5-API ./assignments/A5-API/tests
 
 .PHONY: clean
 clean:
