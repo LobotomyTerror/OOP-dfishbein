@@ -20,3 +20,4 @@ textual-autocomplete
 rich
 geocoder
 geopy
+random-address
