@@ -35,7 +35,7 @@ class GeoLocation():
     ) -> None:
         """Initilizes the class attibutes lat and lon to Denver, CO
         and then when the Geopy API is called it is updated with new
-        values
+        values when set through API call
 
         Args:
             default_lat (str, optional):
