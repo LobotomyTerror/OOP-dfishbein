@@ -1,0 +1,77 @@
+@startuml Title Cost
+class TitleCost {
+    -- Class Variables --
+    - __movie_title: MovieTitle
+    - __movie_cap: MovieCap
+    -- Class Methods --
+    + __init__(): None
+    + getter_movie_title(): float
+    + setter_movie_title(movie_title: float): None
+    + getter_movie_cap(): float
+    + setter_movie_cap(movie_cap: float): None
+    + compare_movie_data(): None
+    + set_movie_data(movie_title: str, movie_cap: str): None
+    -- Static Methods --
+    + print_cost(movie_cost: float): None
+    + movie_data(file: Any): Tuple[str, str]
+    + main(): None
+}
+
+note left of TitleCost
+    Main class that is used for
+    getting input from command line
+    and then setting them to floats
+    for comparing their sizes.
+endnote
+
+class MovieTitle {
+    -- Class Variables --
+    - __movie_title: float
+    -- Class Methods --
+    + __init__(): None
+    + getter_movie_title(): float
+    + setter_movie_title(movie_title: float): None
+}
+
+note left of MovieTitle
+    Dataclass that stores the length
+    of the title of a movie as a float
+    value
+endnote
+
+class MovieCap {
+    -- Class Variables --
+    - __movie_cap: float
+    -- Class Methods --
+    + __init__(): None
+    + getter_movie_cap(): float
+    + setter_movie_cap(movie_cap: float): None
+}
+
+note left of MovieCap
+    Second Dataclass used to store
+    the movie cost as a float value
+endnote
+
+class TestTitleCost {
+    -- Class Variables --
+    - __custom_alphabet: str
+    -- Class Methods --
+    + setUp(): None
+    + test_output(input_str: str, float_input: float): None
+    + test_compare_size(): None
+    + test_main(): None
+    + test_titlecost_compare(): None
+    + 
+}
+
+note left of TestTitleCost
+    Used for Unittesting and hypothesis
+    for checking if data is being processed
+    correctly
+endnote
+
+TitleCost "Length of movie title"-->"float" MovieTitle
+TitleCost "Cost of movie"-->"float" MovieCap
+TitleCost "Tests functions"<-- TestTitleCost
+@enduml
