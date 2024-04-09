@@ -19,6 +19,22 @@
 # Assignments
 
 
+## Assignment 6
+
+
+| __Assignment Details__ | __Info__                                       |
+|------------------------|------------------------------------------------|
+| __Name__               | A6 - inheritance                               |
+| __Description__        | Using inheritance to solve kattis problem [Statistics](https://open.kattis.com/problems/statistics) |
+| __Due__                | 04/15/2024                                     |
+| __Difficulty__         | 1.9 of 04/09/2024                              |
+| __Status__             | Completed                                      |
+| __Location__           | https://github.com/LobotomyTerror/OOP-dfishbein/tree/main/assignments/A6-inheritance/statistics                     |
+| __Self Grade__         | 100/100                                        |
+| __Notes__ | Used inheritance twice to inherit from the actual list class and modify some of the methods to solve the kattis problem. Then inherited from that class to make access easier |
+| __Codecov Report__ | 99% I commented out some lines throughout my program because there wasn't a way to test against it |
+
+
 ## Assignment 5
 
 
@@ -32,7 +48,7 @@
 | __Location__           | https://github.com/LobotomyTerror/OOP-dfishbein/tree/main/assignments/A5-API                     |
 | __Self Grade__         | 90/100                                        |
 | __Notes__ | I was able to get it done pretty quickly, but I was having trouble with printing out using the Textualize module thus I had to change to just using Rich CLI printing instead |
-| __Codecov Report__ | 99% I commented out some lines throughout my program because there wasn't a way to test againsnt it |
+| __Codecov Report__ | 99% I commented out some lines throughout my program because there wasn't a way to test against it |
 
 
 ## Assignment 4
