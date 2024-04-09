@@ -1,0 +1,67 @@
+@startuml Statistics
+class Statistics {
+    -- Class Variables --
+    - __case_count: int
+    -- Class Methods --
+    - __init__(*args: Any, **kwargs: Any): None
+    + getter_case_count(): int
+    + setter_case_count(value: int): None
+    + print_case(): None
+    + remove_first_pos(): None
+    + sort_list(rev_list: bool): None
+    + get_input(file: Any): None
+    -- Static Methods --
+    + main(): None
+}
+
+note left of Statistics
+    Main class that inherits from ListClass
+    that creates custom list class methods for
+    solving the kattis problem Statistics
+endnote
+
+Statistics "Custom Methods"--> ListClass
+
+class ListClass {
+    -- Class Methods --
+    - __init__(*args: Any, **kwargs: Any): None
+    - __setitem__(index: Any, value: Any): None
+    - __getitem__(index: SupportsIndex | slice): Any
+    + sort(*args: Any, **kwargs: Any): None
+    + pop(index: SupportsIndex = -1): Any
+    + append(item: str): None
+    + print_list_class(): None
+    -- Static Method --
+    + l_main(file: str | None): None
+}
+
+ListClass "list Methods"--> list
+
+note right of ListClass
+    Class that inherits the list class
+    to create and manipulate the methods in
+    that class
+endnote
+
+class TestStatistics {
+    -- Class Methods -- 
+    + setUp(): None
+    + test_main(file_content: Any): None
+    + test_list_class(): None
+    + test_list_class_2(file_content: Any): None
+    -- Static Methods --
+    + file_content_strategy(draw: Any): str
+    + file_content_strategy_2(draw: Any): str
+    -- Class Instance Variables --
+    + case_count: int
+    + test_list: ListClass
+}
+
+note left of TestStatistics
+    Unittesting module for testing
+    Statistics and ListClass methods
+endnote
+
+TestStatistics "Unittesting"-- Statistics
+TestStatistics "Unittesting"-- ListClass
+@enduml

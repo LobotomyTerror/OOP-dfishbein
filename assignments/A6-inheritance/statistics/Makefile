@@ -5,7 +5,7 @@ STYLE_TEST = flake8
 FIX_STYLE = autopep8 -v -aa -r --in-place
 
 .PHONY: all
-all: auto_fix check_type check_style clean
+all: auto_fix check_type check_style run_tests clean
 
 .PHONY: auto_fix
 auto_fix:

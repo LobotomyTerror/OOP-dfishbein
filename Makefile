@@ -12,6 +12,7 @@ check-type:
 	$(TYPE_CHECK) assignments/A3-unittesting/morsecodepalindromes
 	$(TYPE_CHECK) assignments/A4-Mocking_Hypothesis/titlecost
 	$(TYPE_CHECK) assignments/A5-API
+	$(TYPE_CHECK) assignments/A6-inheritance/statistics
 	
 .PHONY: check-style
 check-style:
@@ -22,11 +23,13 @@ check-style:
 run-test:
 	$(TEST) $(TEST_ARGS) assignments/A3-unittesting/morsecodepalindromes/tests
 	$(TEST) $(TEST_ARGS) assignments/A4-Mocking_Hypothesis/titlecost/tests
+	$(TEST) $(TEST_ARGS) assignments/A6-inheritance/statistics/tests
 
 .PHONY: pytest_cov
 pytest_cov:
 	$(TEST) -v --cov-report=html:./assignments/A3-unittesting/morsecodepalindromes/coverage_report --cov-report=term --cov=./assignments/A3-unittesting/morsecodepalindromes/ ./assignments/A3-unittesting/morsecodepalindromes/tests
 	$(TEST) -v --cov-report=html:./assignments/A4-Mocking_Hypothesis/titlecost/coverage_report --cov-report=term --cov=./assignments/A4-Mocking_Hypothesis/titlecost/ ./assignments/A4-Mocking_Hypothesis/titlecost/tests
+	$(TEST) -v --cov-report=html:./assignments/A6-inheritance/statistics/coverage_report --cov-report=term --cov=./assignments/A6-inheritance/statistics/ ./assignments/A6-inheritance/statistics/tests
 
 .PHONY: clean
 clean:
