@@ -5,7 +5,7 @@ STYLE_TEST = flake8
 FIX_STYLE = autopep8 -v -aa -r --in-place
 
 .PHONY: all
-all: auto_fix check_type check_style clean
+all: auto_fix check_type check_style run_tests coverage_run clean
 
 .PHONY: auto_fix
 auto_fix:
@@ -22,6 +22,10 @@ check_style:
 .PHONY: run_tests
 run_tests:
 	$(TEST) $(TEST_ARGS) .
+
+.PHONY: coverage_run
+coverage_run:
+	$(TEST) -v --cov-report=html:./coverage_report --cov-report=term --cov=./ ./tests
 
 .PHONY: clean
 clean:
