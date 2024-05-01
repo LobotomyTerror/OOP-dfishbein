@@ -1,3 +1,7 @@
+"""Abstract Base Class (ABC) used for solving the Kattis
+problem Stacking Cups and for redifining base class methods
+"""
+
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
@@ -25,7 +29,7 @@ class Kattis(ABC):
         Reads the data from the given source
         :return: None
         """
-        pass
+        pass  # pragma: no cover
 
     @property
     @abstractmethod
@@ -34,7 +38,7 @@ class Kattis(ABC):
         Returns the data
         :return: data
         """
-        pass
+        pass  # pragma: no cover
 
     @property
     @abstractmethod
@@ -43,7 +47,7 @@ class Kattis(ABC):
         Returns the answer
         :return: answer
         """
-        ...
+        ...  # pragma: no cover
 
     @abstractmethod
     def solve(self) -> None:
@@ -51,7 +55,7 @@ class Kattis(ABC):
         Solves the problem
         :return: None
         """
-        ...
+        ...  # pragma: no cover
 
     @abstractmethod
     def print_answer(self) -> None:
@@ -59,4 +63,4 @@ class Kattis(ABC):
         Prints the answer
         :return: None
         """
-        ...
+        ...  # pragma: no cover
