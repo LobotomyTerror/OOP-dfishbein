@@ -13,6 +13,7 @@ check-type:
 	$(TYPE_CHECK) assignments/A4-Mocking_Hypothesis/titlecost
 	$(TYPE_CHECK) assignments/A5-API
 	$(TYPE_CHECK) assignments/A6-inheritance/statistics
+	$(TYPE_CHECK) assignments/A7-abc/cups
 	
 .PHONY: check-style
 check-style:
@@ -24,6 +25,7 @@ run-test:
 	$(TEST) $(TEST_ARGS) assignments/A3-unittesting/morsecodepalindromes/tests
 	$(TEST) $(TEST_ARGS) assignments/A4-Mocking_Hypothesis/titlecost/tests
 	$(TEST) $(TEST_ARGS) assignments/A6-inheritance/statistics/tests
+	$(TEST) $(TEST_ARGS) assignments/A7-abc/cups/tests
 
 .PHONY: pytest_cov
 pytest_cov:
