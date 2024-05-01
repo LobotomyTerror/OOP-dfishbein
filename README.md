@@ -19,6 +19,22 @@
 # Assignments
 
 
+## Assignment 7
+
+
+| __Assignment Details__ | __Info__                                       |
+|------------------------|------------------------------------------------|
+| __Name__               | A7 - abc                                       |
+| __Description__        | Using Inheritance and Abstraction to solve the Kattis problem [Stacking Cups](https://open.kattis.com/problems/cups/en) |
+| __Due__                | 05/10/2024                                     |
+| __Difficulty__         | 1.6 of 04/30/2024                              |
+| __Status__             | Completed                                      |
+| __Location__           | https://github.com/LobotomyTerror/OOP-dfishbein/tree/main/assignments/A7-abc/cups                     |
+| __Self Grade__         | 100/100                                        |
+| __Notes__ | Used Kattis module that was supplied for use with abstraction. Along with I used the MutableSequence to overide certain methods for use in my main class |
+| __Codecov Report__ | 99% I commented out some lines throughout my program because there wasn't a way to test against it |
+
+
 ## Assignment 6
 
 
