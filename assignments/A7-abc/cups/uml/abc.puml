@@ -1,0 +1,90 @@
+@startuml Abstract Base Class
+class Cups {
+    -- Class Instance Variables --
+    - _data: List[str]
+    - _answer: List[str]
+    - _cup_data: Sequence
+    -- Class Methods --
+    - __init__(): None
+    + read_input(): None
+    + solve(): None
+    + data(): List[str]
+    + answer(): str
+    + print_answer(): None
+    -- Static Methods --
+    + conver_to_radius(color: str, radius: str): Tuple[str, str]
+}
+Cups "ABC"--> Kattis
+
+note left of Cups
+    Inherits the abstract base class
+    Kattis to redifine class methods
+    to solve the kattis problem Stacking
+    Cups
+endnote
+
+class Kattis {
+    -- Class Instance Variables --
+    - _input_source: Any
+    - _data: Any
+    - _answer: Any
+    -- Class Methods --
+    - __init__(data_source: Any): None
+    + read_input(): None
+    + data(): Any
+    + answer(): Any
+    + solve(): None
+    + print_answer(): None
+}
+Kattis "ABC Module"--> abc
+
+note left of Kattis
+    Abstract base class used for redifining class
+    methods in separate modules
+endnote
+
+class Sequence {
+    -- Class Instance Variable --
+    - _cup_type: List[Tuple[str, int]]
+    -- Class Methods --
+    - __init__(): None
+    - __len__(): int
+    - __getitem__(index: int | slice): Union[Tuple[str, int], List[Tuple[str, int]]]
+    - __setitem__(index: Union[int, slice], cup: Union[Tuple[str, int], Iterable[Tuple[str, int]]]): None
+    - __delitem__(index: int | slice): None
+    + insert(index: int, value: Tuple[str, int]): None
+    - __iter__(): Iterator[Tuple[str, int]]
+    - __str__(): str
+    + append(value: Tuple[str, int]): None
+    + sort(key: Any = None): None
+}
+Sequence "MutableSequence ABC"--> MutableSequence
+
+note right of Sequence
+    Inherits from collections.abc MutableSequence
+    to overide class methods to suit the needs of
+    the task being preformed
+endnote
+
+class TestCups {
+    -- Class Instance Variables --
+    - _test_mod: Module('cup_t')
+    - _seq: Sequence
+    -- Class Methods --
+    + generate_str(draw: Any): str
+    + test_module_1(content: Any): None
+    + test_ms_module_1(): None
+    + test_ms_module_2(): None
+    + test_ms_module_3(): None
+    + test_ms_module_4(): None
+    + test_ms_module_5(): None
+}
+TestCups "Helper Module"--> cup_t
+TestCups "Main Module"--> Cups
+TestCups "Derived Module"--> Sequence
+
+note left of TestCups
+    Class used for testing various modules
+    to check outputs and functionality
+endnote
+@enduml
