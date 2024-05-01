@@ -39,11 +39,13 @@ jobs:
         mypy --strict --allow-untyped-decorators --ignore-missing-imports ./assignments/A4-Mocking_Hypothesis/titlecost/
         mypy --strict --allow-untyped-decorators --ignore-missing-imports ./assignments/A5-API/
         mypy --strict --allow-untyped-decorators --ignore-missing-imports ./assignments/A6-inheritance/statistics/
+        mypy --strict --allow-untyped-decorators --ignore-missing-imports ./assignments/A7-abc/cups/
     - name: Test with pytest
       run: |
         pytest --verbose ./assignments/A3-unittesting/morsecodepalindromes/tests 
         pytest --verbose ./assignments/A4-Mocking_Hypothesis/titlecost/tests
         pytest --verbose ./assignments/A6-inheritance/statistics/tests
+        pytest --verbose ./assignments/A7-abc/cups/tests
     - name: Coverage report
       run: |
         pytest --cov-report=xml:./assignments/A3-unittesting/morsecodepalindromes/coverage.xml --cov=./assignments/A3-unittesting/morsecodepalindromes/ ./assignments/A3-unittesting/morsecodepalindromes/tests
